@@ -23,6 +23,8 @@
             padding: 0;
             color: #1a1a1a;
             line-height: 1.6;
+            width: 100%;
+            max-width: 100%;
         }
         
         header {
@@ -118,6 +120,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid #FFD700;
+            width: calc(100% - 60px);
         }
         
         .section:hover {
@@ -255,8 +258,37 @@
             scroll-behavior: smooth;
         }
         
-        /* Responsive design */
+        /* Responsive design - Tablets */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 25px;
+                margin: 25px 15px;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+            
+            table {
+                font-size: 0.95em;
+            }
+            
+            th, td {
+                padding: 12px 10px;
+            }
+        }
+        
+        /* Responsive design - Mobile Tablets */
         @media (max-width: 768px) {
+            header {
+                padding: 40px 15px;
+            }
+            
+            header img {
+                width: 150px;
+                height: 150px;
+            }
+            
             header h1 {
                 font-size: 2em;
             }
@@ -265,22 +297,198 @@
                 font-size: 1.4em;
             }
             
+            nav {
+                margin-top: 20px;
+            }
+            
             nav a {
-                display: block;
-                margin: 8px 0;
+                display: inline-block;
+                margin: 5px 8px;
+                padding: 6px 12px;
+                font-size: 0.95em;
             }
             
             .section {
                 padding: 20px;
                 margin: 20px 10px;
+                width: calc(100% - 20px);
+            }
+            
+            h2 {
+                font-size: 1.6em;
             }
             
             table {
-                font-size: 0.9em;
+                font-size: 0.85em;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
             }
             
             th, td {
                 padding: 10px 8px;
+            }
+            
+            .resume-button {
+                padding: 12px 25px;
+                font-size: 0.95em;
+            }
+        }
+        
+        /* Responsive design - Mobile Phones */
+        @media (max-width: 480px) {
+            header {
+                padding: 30px 10px;
+            }
+            
+            header img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 15px;
+            }
+            
+            header h1 {
+                font-size: 1.6em;
+                margin: 5px 0;
+            }
+            
+            header h2 {
+                font-size: 1.1em;
+                margin-top: -5px;
+            }
+            
+            nav {
+                margin-top: 15px;
+            }
+            
+            nav a {
+                display: block;
+                margin: 5px 0;
+                padding: 8px 12px;
+                font-size: 0.9em;
+                width: calc(100% - 24px);
+                max-width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 15px;
+                margin: 15px 5px;
+                border-radius: 10px;
+                width: calc(100% - 10px);
+            }
+            
+            /* Enable horizontal scroll for sections with wide tables */
+            .section {
+                overflow-x: auto;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+            
+            h2::after {
+                width: 60px;
+                height: 3px;
+            }
+            
+            p {
+                font-size: 16px !important;
+                line-height: 1.5;
+            }
+            
+            /* Tables - Make scrollable on mobile */
+            .section {
+                overflow-x: auto;
+            }
+            
+            table {
+                font-size: 0.75em;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                max-width: 100%;
+                border-radius: 8px;
+            }
+            
+            table thead {
+                display: table-header-group;
+            }
+            
+            table tbody {
+                display: table-row-group;
+            }
+            
+            table tr {
+                display: table-row;
+            }
+            
+            table th,
+            table td {
+                display: table-cell;
+                padding: 8px 6px;
+                word-wrap: break-word;
+                white-space: normal;
+                min-width: 80px;
+            }
+            
+            /* For wide tables with many columns */
+            table th:nth-child(n+5),
+            table td:nth-child(n+5) {
+                min-width: 120px;
+            }
+            
+            /* Lists in tables */
+            ul {
+                margin: 5px 0 !important;
+                padding-left: 15px !important;
+            }
+            
+            ul li {
+                margin: 5px 0;
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+            
+            .resume-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            .footer {
+                padding: 20px 10px;
+                font-size: 0.9em;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.4em;
+            }
+            
+            header h2 {
+                font-size: 1em;
+            }
+            
+            h2 {
+                font-size: 1.2em;
+            }
+            
+            table {
+                font-size: 0.7em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
             }
         }
 /* @media (max-width: 600px) {
