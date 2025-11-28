@@ -6,108 +6,283 @@
     <title>About Agil Azizov</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body, html {
-            overflow-x: hidden;
-            font-family: 'Arial', sans-serif;
-            background-color: #eef2f3; /* Soft light background */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
         }
+        
+        body, html {
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
         header {
-            background: #2c3e50; /* Dark blue color for header */
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 60px 20px;
             position: relative;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            border-bottom: 3px solid #FFD700;
         }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.05) 100%);
+            pointer-events: none;
+        }
+        
         header img {
-            width: 200px; /* Increased profile picture size */
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            border: 5px solid #FFD700;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
         }
 
         header h1 {
             margin: 10px 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.5);
+            position: relative;
+            z-index: 1;
         }
+        
         header h2 {
-    font-size: 2em;
-    font-weight: normal;
-    margin-top: -10px;
-}
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-top: -10px;
+            color: #FFFFFF;
+            position: relative;
+            z-index: 1;
+        }
 
         nav {
-            margin-top: 15px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 1;
         }
+        
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 12px;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 1.05em;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
         }
+        
         nav a:hover {
-            color: #f39c12; /* Change to gold on hover */
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            border-color: #FFD700;
         }
+        
         .section {
-            padding: 20px;
-            background-color: white; /* White background for sections */
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 35px;
+            background: #FFFFFF;
+            margin: 30px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #FFD700;
         }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+            border-color: #FFA500;
+        }
+        
         h2 {
-            border-bottom: 2px solid #2c3e50; /* Underline for section titles */
-            padding-bottom: 5px;
+            color: #000000;
+            padding-bottom: 10px;
             text-align: center;
-            font-size: 2em;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
         }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 2px;
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #FFD700;
         }
+        
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 15px;
             text-align: left;
         }
+        
         th {
-            background-color: #2c3e50; /* Dark blue for table header */
-            color: white;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #FFD700;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #FFD700;
         }
+        
+        tr {
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            background-color: #FFFFFF;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #FFFEF0;
+        }
+        
         tr:hover {
-            background-color: #ecf0f1; /* Light gray on hover */
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            transform: scale(1.01);
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
         }
-        tr{
-            font-weight: bold;
-            color: blue;
+        
+        td a {
+            color: #FFA500;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
+        
+        td a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+        
+        ul {
+            list-style-position: inside;
+        }
+        
+        ul li {
+            margin: 8px 0;
+            color: #1a1a1a;
+        }
+        
         .footer {
             text-align: center;
-            padding: 15px;
-            background-color: #2c3e50; /* Dark blue for footer */
-            color: white;
+            padding: 25px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #FFD700;
             position: relative;
             bottom: 0;
             width: 100%;
+            margin-top: 40px;
+            box-shadow: 0 -4px 20px rgba(255, 215, 0, 0.3);
+            border-top: 3px solid #FFD700;
         }
         
-    .resume-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f39c12; /* Gold color */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
+        .footer p {
+            font-weight: 500;
+        }
+        
+        .resume-button {
+            display: inline-block;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            margin-top: 20px;
+            border: 2px solid #FFD700;
+        }
 
-.resume-button:hover {
-    background-color: #e67e22; /* Darker gold on hover */
-}
+        .resume-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.7);
+            background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+            color: #000000;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header h2 {
+                font-size: 1.4em;
+            }
+            
+            nav a {
+                display: block;
+                margin: 8px 0;
+            }
+            
+            .section {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+        }
 /* @media (max-width: 600px) {
             table, thead, tbody, th, td, tr {
                 display: block;
@@ -147,7 +322,7 @@
 
     <header>
         <img src="images/bddb6b13-67f6-4696-a996-5196ac34e71e_removalai_preview.png" alt="Your Profile Picture"
-        style="background-color: #dfe6e9; width: 220px; height: 220px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
+        style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover;">
         <h1>Agil Azizov</h1><br>
         <h2>Backend Developer</h2>
         <nav>
@@ -169,7 +344,7 @@
             Backend development. Relevant skills include proficiency in Java, Spring Framework, Spring Boot and 
             Spring Security. Strong knowledge of Hibernate and JPA. Experienced in creating RESTful APIs and 
             designing database schemas.</p>
-            <a href="images/resume.pdf" target="_blank" class="resume-button">Download Resume</a>
+            <a href="images/CV.pdf" target="_blank" class="resume-button">Download Resume</a>
     </div>
 
     <!-- <div class="section" id="my-personal-information">
@@ -196,53 +371,78 @@
     <div class="section" id="experience">
         <h2>Work Experience</h2>
         <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-            <tr style="background-color: #f0f0f0;">
+            <tr>
                 <th>No</th>
-                <th>Workplace</th>
+                <th>Company</th>
                 <th>Position</th>
-                <th>Begin Date</th>
+                <th>Responsibilities & Achievements</th>
+                <th>Start Date</th>
                 <th>Duration</th>
             </tr>
             <tr>
                 <td>1</td>
-                <td>Design and Information Technologies</td>
-                <td>Backend Mentor</td>
-                <td>01.10.2023</td>
-                <td>16 months</td>
+                <td>Desinftec</td>
+                <td>Backend Developer</td>
+                <td>
+                    <ul style="margin: 8px 0 0 15px; padding-left: 15px; color: #2d3748; font-weight: 500;">
+                        <li>Develop and maintain high-performance backend services using Java and Spring Boot framework</li>
+                        <li>Design and implement RESTful APIs for various business applications</li>
+                        <li>Optimize database queries and improve application performance</li>
+                        <li>Collaborate with cross-functional teams to deliver scalable solutions</li>
+                        <li>Participate in code reviews and ensure code quality standards</li>
+                    </ul>
+                </td>
+                <td>07.07.2025</td>
+                <td>Present</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Intern Intelligence</td>
-                <td>Java Developer</td>
-                <td>10.01.2025</td>
-                <td>1 month</td>
-            </tr>
-            <tr>
-                <td>3</td>
                 <td>Developia Engineering</td>
+                <td>Backend Developer & Mentor</td>
                 <td>
-                    <ul style="margin: 8px 0 0 15px; padding-left: 15px; color: blue; font-weight: bold;">
-                        <li>Provided expert guidance and mentorship in advanced Java concepts to junior developers and mentees.</li>
-                        <li>Designed and delivered comprehensive Java training sessions focused on best practices, design patterns, and performance optimization.</li>
-                        <li>Reviewed and critiqued mentees' code, providing constructive feedback to improve code quality and maintainability.</li>
-                        <li>Developed robust and scalable backend services and APIs using Java and related technologies.</li>
-                        <li>Collaborated with frontend developers and other stakeholders to design system architecture and workflows.</li>
-                        <li>Implemented RESTful APIs ensuring security, efficiency, and high availability.</li>
-                        <li>Delivered backend development courses covering Java, databases, APIs, and server-side programming.</li>
-                        <li>Prepared lesson plans, exercises, and practical assignments aligned with industry standards.</li>
-                        <li>Assisted students with hands-on coding challenges, debugging, and project development.</li>
+                    <ul style="margin: 8px 0 0 15px; padding-left: 15px; color: #2d3748; font-weight: 500;">
+                        <li>Lead backend development initiatives and mentor junior developers on best practices</li>
+                        <li>Design and develop scalable microservices architecture using Spring Cloud</li>
+                        <li>Implement secure authentication and authorization systems with Spring Security</li>
+                        <li>Deliver comprehensive Java Backend Development training courses</li>
+                        <li>Create and maintain technical documentation and coding standards</li>
+                        <li>Review code, provide constructive feedback, and improve team code quality</li>
+                        <li>Develop RESTful APIs and integrate with various third-party services</li>
+                        <li>Optimize application performance and database interactions</li>
                     </ul>
                 </td>
                 <td>08.08.2024</td>
-                <td>As of this date</td>
+                <td>Present</td>
             </tr>
-
+            <tr>
+                <td>3</td>
+                <td>Intern Intelligence</td>
+                <td>Java Developer</td>
+                <td>
+                    <ul style="margin: 8px 0 0 15px; padding-left: 15px; color: #2d3748; font-weight: 500;">
+                        <li>Developed backend services for portfolio and movie management applications</li>
+                        <li>Worked on database design and implementation using MySQL</li>
+                        <li>Implemented RESTful APIs following industry best practices</li>
+                        <li>Collaborated with team members in an agile development environment</li>
+                    </ul>
+                </td>
+                <td>10.01.2025</td>
+                <td>28.02.2025</td>
+            </tr>
             <tr>
                 <td>4</td>
-                <td>Desinftec</td>
-                <td>Backend Developer</td>
-                <td>07.07.2025</td>
-                <td>As of this date</td>
+                <td>Design and Information Technologies</td>
+                <td>Backend Mentor</td>
+                <td>
+                    <ul style="margin: 8px 0 0 15px; padding-left: 15px; color: #2d3748; font-weight: 500;">
+                        <li>Mentored aspiring backend developers in Java and Spring Framework</li>
+                        <li>Created educational content and practical coding exercises</li>
+                        <li>Provided one-on-one guidance on complex backend development concepts</li>
+                        <li>Helped students build portfolio projects and prepare for industry roles</li>
+                    </ul>
+                </td>
+                <td>01.10.2023</td>
+                <td>01.02.2025</td>
             </tr>
         </table>
         
@@ -258,188 +458,188 @@
             </tr>
             <tr>
                 <td>1</td>
-                <td>Java Programming language</td>
-                <td>92%</td>
+                <td>Java Programming Language</td>
+                <td>95%</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Spring Framework</td>
-                <td>80%</td>
+                <td>Spring Framework Ecosystem</td>
+                <td>90%</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Spring Boot</td>
-                <td>90%</td>
+                <td>93%</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>Spring Security</td>
-                <td>85%</td>
+                <td>Spring Security & JWT</td>
+                <td>88%</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>Spring MVC</td>
-                <td>85%</td>
+                <td>87%</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>Spring Core</td>
-                <td>85%</td>
+                <td>Spring Data JPA</td>
+                <td>92%</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>Spring Web Services</td>
-                <td>90%</td>
+                <td>RESTful API Development</td>
+                <td>92%</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>Microservices Service Discovery</td>
-                <td>60%</td>
+                <td>Microservices Architecture</td>
+                <td>75%</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>Microservices Architecture</td>
-                <td>60%</td>
+                <td>Service Discovery (Eureka, Consul)</td>
+                <td>70%</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>Microservices API Gateway</td>
-                <td>60%</td>
+                <td>API Gateway (Spring Cloud Gateway)</td>
+                <td>72%</td>
             </tr>
             <tr>
                 <td>11</td>
-                <td>Microservices Load Balancing</td>
-                <td>60%</td>
+                <td>Load Balancing & Circuit Breaker</td>
+                <td>70%</td>
             </tr>
             <tr>
                 <td>12</td>
-                <td>Microservices Message Broker</td>
-                <td>70%</td>
+                <td>Message Broker (Apache Kafka, RabbitMQ)</td>
+                <td>75%</td>
             </tr>
             <tr>
                 <td>13</td>
-                <td>REST APIs</td>
-                <td>90%</td>
+                <td>JPA / Hibernate</td>
+                <td>93%</td>
             </tr>
             <tr>
                 <td>14</td>
-                <td>Linux OS</td>
-                <td>30%</td>
+                <td>SQL & Database Design</td>
+                <td>88%</td>
             </tr>
             <tr>
                 <td>15</td>
-                <td>Windows OS</td>
-                <td>50%</td>
+                <td>MySQL</td>
+                <td>92%</td>
             </tr>
             <tr>
                 <td>16</td>
-                <td>Docker and Docker Compose</td>
-                <td>70%</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>JPA/Hibernate</td>
-                <td>90%</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>GIT</td>
+                <td>PostgreSQL</td>
                 <td>80%</td>
             </tr>
             <tr>
+                <td>17</td>
+                <td>Oracle Database</td>
+                <td>78%</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>H2 Database</td>
+                <td>85%</td>
+            </tr>
+            <tr>
                 <td>19</td>
-                <td>C# programming language</td>
-                <td>60%</td>
+                <td>Docker & Docker Compose</td>
+                <td>80%</td>
             </tr>
             <tr>
                 <td>20</td>
-                <td>C++ programming language</td>
-                <td>50%</td>
+                <td>Kubernetes</td>
+                <td>65%</td>
             </tr>
             <tr>
                 <td>21</td>
-                <td>Swagger</td>
-                <td>90%</td>
+                <td>Git & Version Control</td>
+                <td>85%</td>
             </tr>
             <tr>
                 <td>22</td>
-                <td>SQL</td>
+                <td>Maven / Gradle</td>
                 <td>85%</td>
             </tr>
             <tr>
                 <td>23</td>
-                <td>MySQL Database Management System</td>
-                <td>90%</td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td>Oracle Database Management System</td>
+                <td>CI/CD Pipelines (Jenkins, GitHub Actions)</td>
                 <td>75%</td>
             </tr>
             <tr>
+                <td>24</td>
+                <td>Unit Testing (JUnit 5)</td>
+                <td>82%</td>
+            </tr>
+            <tr>
                 <td>25</td>
-                <td>Postman</td>
-                <td>80%</td>
+                <td>Mockito & Test Containers</td>
+                <td>78%</td>
             </tr>
             <tr>
                 <td>26</td>
-                <td>JUnit/Mockito</td>
-                <td>70%</td>
+                <td>Swagger / OpenAPI</td>
+                <td>90%</td>
             </tr>
             <tr>
                 <td>27</td>
-                <td>Groovy</td>
-                <td>60%</td>
+                <td>Postman & API Testing</td>
+                <td>85%</td>
             </tr>
             <tr>
                 <td>28</td>
-                <td>HTML</td>
-                <td>80%</td>
+                <td>IntelliJ IDEA</td>
+                <td>93%</td>
             </tr>
             <tr>
                 <td>29</td>
-                <td>CSS</td>
-                <td>60%</td>
+                <td>Eclipse IDE</td>
+                <td>75%</td>
             </tr>
             <tr>
                 <td>30</td>
-                <td>JavaScript</td>
-                <td>60%</td>
+                <td>Linux / Unix</td>
+                <td>65%</td>
             </tr>
             <tr>
                 <td>31</td>
-                <td>JSON</td>
-                <td>90%</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>Maven/Gradle</td>
+                <td>Windows OS</td>
                 <td>80%</td>
             </tr>
             <tr>
+                <td>32</td>
+                <td>HTML / CSS</td>
+                <td>75%</td>
+            </tr>
+            <tr>
                 <td>33</td>
-                <td>Intellij IDEA IDE</td>
-                <td>90%</td>
+                <td>JavaScript (ES6+)</td>
+                <td>70%</td>
             </tr>
             <tr>
                 <td>34</td>
-                <td>Eclipse IDE</td>
-                <td>70%</td>
+                <td>JSON / XML</td>
+                <td>92%</td>
             </tr>
             <tr>
                 <td>35</td>
-                <td>Kubernetes</td>
-                <td>60%</td>
+                <td>Design Patterns</td>
+                <td>80%</td>
             </tr>
             <tr>
                 <td>36</td>
-                <td>Apache Kafka</td>
-                <td>70%</td>
+                <td>Object-Oriented Programming (OOP)</td>
+                <td>90%</td>
             </tr>
             <tr>
                 <td>37</td>
-                <td>CI/CD</td>
-                <td>70%</td>
+                <td>Clean Code & SOLID Principles</td>
+                <td>85%</td>
             </tr>
         </table>
     </div>
@@ -532,7 +732,7 @@
     <td>30.11.2024</td>
     <td>
         Used by Munchigo<br>
-        URL: <a href="https://munchigo.az/" target="_blank" style="color: red;">Munchigo</a>
+        URL: <a href="https://munchigo.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Munchigo</a>
     </td>
     <td>Building the backend of the project</td>
 </tr>
@@ -575,7 +775,7 @@
     <td>06.07.2025</td>
     <td>
         Used by Eracon<br>
-        URL: <a href="https://era-con.az/" target="_blank" style="color: red;">Eracon</a>
+        URL: <a href="https://era-con.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Eracon</a>
     </td>
     <td>Building the backend of the project</td>
 </tr>
@@ -583,8 +783,11 @@
     <td>10</td>
     <td>Otogo - A mobile service platform that helps customers easily find nearby car services and allows service providers to manage their businesses efficiently.</td>
     <td>21.06.2025</td>
-    <td>Present</td>
-    <td>Used by Eracon</td>
+    <td>27.11.2025</td>
+    <td>
+        Used by Otogo<br>
+        URL: <a href="https://otogo.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Otogo</a>
+    </td>
     <td>Building the backend of the project</td>
 </tr>
 
@@ -717,7 +920,7 @@
             <tr>
                 <td>2</td>
                 <td>Work Email:</td>
-                <td>agilazizovpersonal@gmail.com</td>
+                <td>agilazizovf@gmail.com</td>
             </tr>
             <tr>
                 <td>3</td>
