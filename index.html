@@ -1,989 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Agil Azizov</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body, html {
-            overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            color: #1a1a1a;
-            line-height: 1.6;
-            width: 100%;
-            max-width: 100%;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
-            border-bottom: 3px solid #FFD700;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.05) 100%);
-            pointer-events: none;
-        }
-        
-        header img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-            border: 5px solid #FFD700;
-            transition: transform 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        header img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
-        }
-
-        header h1 {
-            margin: 10px 0;
-            font-size: 2.8em;
-            font-weight: 700;
-            color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-        
-        header h2 {
-            font-size: 1.8em;
-            font-weight: 400;
-            margin-top: -10px;
-            color: #FFFFFF;
-            position: relative;
-            z-index: 1;
-        }
-
-        nav {
-            margin-top: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        nav a {
-            color: white;
-            margin: 0 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05em;
-            padding: 8px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: 2px solid transparent;
-        }
-        
-        nav a:hover {
-            background-color: #FFD700;
-            color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
-            border-color: #FFD700;
-        }
-        
-        .section {
-            padding: 35px;
-            background: #FFFFFF;
-            margin: 30px auto;
-            max-width: 1200px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #FFD700;
-            width: calc(100% - 60px);
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
-            border-color: #FFA500;
-        }
-        
-        h2 {
-            color: #000000;
-            padding-bottom: 10px;
-            text-align: center;
-            font-size: 2.2em;
-            font-weight: 700;
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
-            border-radius: 2px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 2px solid #FFD700;
-        }
-        
-        th, td {
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            text-align: left;
-        }
-        
-        th {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            color: #FFD700;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #FFD700;
-        }
-        
-        tr {
-            font-weight: 500;
-            color: #1a1a1a;
-            transition: all 0.3s ease;
-            background-color: #FFFFFF;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #FFFEF0;
-        }
-        
-        tr:hover {
-            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
-            transform: scale(1.01);
-            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-        }
-        
-        td a {
-            color: #FFA500;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        td a:hover {
-            color: #FFD700;
-            text-decoration: underline;
-        }
-        
-        ul {
-            list-style-position: inside;
-        }
-        
-        ul li {
-            margin: 8px 0;
-            color: #1a1a1a;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 25px;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            color: #FFD700;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: 40px;
-            box-shadow: 0 -4px 20px rgba(255, 215, 0, 0.3);
-            border-top: 3px solid #FFD700;
-        }
-        
-        .footer p {
-            font-weight: 500;
-        }
-        
-        .resume-button {
-            display: inline-block;
-            padding: 14px 30px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000000;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
-            margin-top: 20px;
-            border: 2px solid #FFD700;
-        }
-
-        .resume-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.7);
-            background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
-            color: #000000;
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Responsive design - Tablets */
-        @media (max-width: 1024px) {
-            .section {
-                padding: 25px;
-                margin: 25px 15px;
-            }
-            
-            h2 {
-                font-size: 1.8em;
-            }
-            
-            table {
-                font-size: 0.95em;
-            }
-            
-            th, td {
-                padding: 12px 10px;
-            }
-        }
-        
-        /* Responsive design - Mobile Tablets */
-        @media (max-width: 768px) {
-            header {
-                padding: 40px 15px;
-            }
-            
-            header img {
-                width: 150px;
-                height: 150px;
-            }
-            
-            header h1 {
-                font-size: 2em;
-            }
-            
-            header h2 {
-                font-size: 1.4em;
-            }
-            
-            nav {
-                margin-top: 20px;
-            }
-            
-            nav a {
-                display: inline-block;
-                margin: 5px 8px;
-                padding: 6px 12px;
-                font-size: 0.95em;
-            }
-            
-            .section {
-                padding: 20px;
-                margin: 20px 10px;
-                width: calc(100% - 20px);
-            }
-            
-            h2 {
-                font-size: 1.6em;
-            }
-            
-            table {
-                font-size: 0.85em;
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                white-space: nowrap;
-            }
-            
-            th, td {
-                padding: 10px 8px;
-            }
-            
-            .resume-button {
-                padding: 12px 25px;
-                font-size: 0.95em;
-            }
-        }
-        
-        /* Responsive design - Mobile Phones */
-        @media (max-width: 480px) {
-            header {
-                padding: 30px 10px;
-            }
-            
-            header img {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 15px;
-            }
-            
-            header h1 {
-                font-size: 1.6em;
-                margin: 5px 0;
-            }
-            
-            header h2 {
-                font-size: 1.1em;
-                margin-top: -5px;
-            }
-            
-            nav {
-                margin-top: 15px;
-            }
-            
-            nav a {
-                display: block;
-                margin: 5px 0;
-                padding: 8px 12px;
-                font-size: 0.9em;
-                width: calc(100% - 24px);
-                max-width: 200px;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
-            
-            .section {
-                padding: 15px;
-                margin: 15px 5px;
-                border-radius: 10px;
-                width: calc(100% - 10px);
-            }
-            
-            /* Enable horizontal scroll for sections with wide tables */
-            .section {
-                overflow-x: auto;
-            }
-            
-            h2 {
-                font-size: 1.4em;
-                margin-bottom: 15px;
-            }
-            
-            h2::after {
-                width: 60px;
-                height: 3px;
-            }
-            
-            p {
-                font-size: 16px !important;
-                line-height: 1.5;
-            }
-            
-            /* Tables - Make scrollable on mobile */
-            .section {
-                overflow-x: auto;
-            }
-            
-            table {
-                font-size: 0.75em;
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                width: 100%;
-                max-width: 100%;
-                border-radius: 8px;
-            }
-            
-            table thead {
-                display: table-header-group;
-            }
-            
-            table tbody {
-                display: table-row-group;
-            }
-            
-            table tr {
-                display: table-row;
-            }
-            
-            table th,
-            table td {
-                display: table-cell;
-                padding: 8px 6px;
-                word-wrap: break-word;
-                white-space: normal;
-                min-width: 80px;
-            }
-            
-            /* For wide tables with many columns */
-            table th:nth-child(n+5),
-            table td:nth-child(n+5) {
-                min-width: 120px;
-            }
-            
-            /* Lists in tables */
-            ul {
-                margin: 5px 0 !important;
-                padding-left: 15px !important;
-            }
-            
-            ul li {
-                margin: 5px 0;
-                font-size: 0.9em;
-                line-height: 1.4;
-            }
-            
-            .resume-button {
-                padding: 12px 20px;
-                font-size: 0.9em;
-                width: 100%;
-                max-width: 250px;
-                text-align: center;
-            }
-            
-            .footer {
-                padding: 20px 10px;
-                font-size: 0.9em;
-            }
-        }
-        
-        /* Extra small devices */
-        @media (max-width: 360px) {
-            header h1 {
-                font-size: 1.4em;
-            }
-            
-            header h2 {
-                font-size: 1em;
-            }
-            
-            h2 {
-                font-size: 1.2em;
-            }
-            
-            table {
-                font-size: 0.7em;
-            }
-            
-            th, td {
-                padding: 6px 4px;
-            }
-        }
-/* @media (max-width: 600px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-            th {
-                position: absolute;
-                left: -9999px;
-            }
-            tr {
-                margin-bottom: 15px;
-            }
-            td {
-                text-align: right;
-                padding-left: 50%;
-                position: relative;
-            }
-            td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: calc(50% - 20px);
-                padding-right: 10px;
-                white-space: nowrap;
-                text-align: left;
-            }
-        } */
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agil Azizov — Backend Engineer</title>
+<meta name="description" content="Agil Azizov — Backend Engineer specializing in Java, Spring Boot and RESTful API architecture. Building reliable backend systems in Baku, Azerbaijan.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230a0e12%22/><text x=%2216%22 y=%2222%22 font-size=%2218%22 text-anchor=%22middle%22 fill=%22%2345d0b5%22 font-family=%22monospace%22>A</text></svg>">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <script>
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        };
-    </script>
-    
+<div class="cursor-glow" id="cursorGlow"></div>
 
-    <header>
-        <img src="images/bddb6b13-67f6-4696-a996-5196ac34e71e_removalai_preview.png" alt="Your Profile Picture"
-        style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover;">
-        <h1>Agil Azizov</h1><br>
-        <h2>Backend Developer</h2>
-        <nav>
-            <a href="#about">About</a>
-            <!-- <a href="#my-personal-information">My Personal Information</a> -->
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#contact">Contact</a>
-            <a href="#languages">Languages</a>
-        </nav>
-    </header>
-    
-    <div class="section" id="about">
-        <h2>About Me</h2>
-        <p style="font-family: 'Poppins', sans-serif; font-size: 18px; line-height: 1.6;">Solid experience in developing and maintaining fast web applications based on Java, with a focus on 
-            Backend development. Relevant skills include proficiency in Java, Spring Framework, Spring Boot and 
-            Spring Security. Strong knowledge of Hibernate and JPA. Experienced in creating RESTful APIs and 
-            designing database schemas.</p>
-            <a href="images/CV.pdf" target="_blank" class="resume-button">Download Resume</a>
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand"><span class="dot"></span>agil.dev</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-nav>/about</a>
+      <a href="#experience" data-nav>/experience</a>
+      <a href="#skills" data-nav>/skills</a>
+      <a href="#projects" data-nav>/projects</a>
+      <a href="#education" data-nav>/education</a>
+      <a href="#contact" data-nav>/contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="Agil_Azizov.pdf" target="_blank" class="btn btn-ghost btn-sm" style="display:none" id="navResume">résumé</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Let's talk</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-nav>/about</a>
+  <a href="#experience" data-nav>/experience</a>
+  <a href="#skills" data-nav>/skills</a>
+  <a href="#projects" data-nav>/projects</a>
+  <a href="#education" data-nav>/education</a>
+  <a href="#contact" data-nav>/contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="status-pill"><span class="pulse"></span> Open to backend engineering roles</div>
+      <h1>
+        <span class="line">Backend engineer building</span>
+        <span class="line"><em class="accent">reliable</em> APIs at scale.</span>
+      </h1>
+      <p class="hero-desc">
+        I'm Agil Azizov, a backend developer in Baku, Azerbaijan, focused on Java &amp; Spring Boot.
+        I design REST APIs, data models and microservices that stay fast and predictable
+        long after the demo is over.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" data-magnetic>View projects →</a>
+        <a href="Agil_Azizov.pdf" target="_blank" class="btn btn-ghost" data-magnetic>Download résumé</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/agilazizovf" target="_blank" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.78 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/agil-azizov/" target="_blank" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.68H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@agilazizovf" target="_blank" aria-label="YouTube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.02 3.02 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z"/></svg>
+        </a>
+        <a href="mailto:agilazizovf@gmail.com" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        </a>
+      </div>
     </div>
 
-    <!-- <div class="section" id="my-personal-information">
-        <h2>My Personal Information</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Informations</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Mobile Phone :</td>
-                <td>+994 55 548 68 11</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Claimed position :</td>
-                <td>Backend Developer</td>
-            </tr>
-        </table>
-    </div> -->
+    <div>
+      <div class="terminal reveal">
+        <div class="terminal-bar">
+          <span style="background:#e2685f"></span><span style="background:#f0a94e"></span><span style="background:#45d0b5"></span>
+          <span class="t-title">agil@backend — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </div>
+      <div class="hero-stats reveal-stagger" id="heroStats">
+        <div class="hero-stat"><div class="num"><span class="accent">2+</span></div><div class="lbl">Years building APIs</div></div>
+        <div class="hero-stat"><div class="num"><span class="accent">35+</span></div><div class="lbl">Endpoints shipped</div></div>
+        <div class="hero-stat"><div class="num"><span class="accent">30+</span></div><div class="lbl">Devs mentored</div></div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <div class="section" id="experience">
-        <h2>Work Experience</h2>
-        <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
-            <tr>
-                <th>No</th>
-                <th>Company</th>
-                <th>Position</th>
-                <th>Responsibilities & Achievements</th>
-                <th>Start Date</th>
-                <th>Duration</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Design and Information Technologies</td>
-                <td>Backend Mentor</td>
-                <td>Mentored aspiring backend developers in Java and Spring, created educational content and practical exercises, and helped students build portfolio projects for industry roles.</td>
-                <td>01.10.2023</td>
-                <td>01.02.2025</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Developia Engineering</td>
-                <td>Backend Developer & Mentor</td>
-                <td>Lead backend development and mentoring, deliver Java Backend Development training, develop RESTful APIs and microservices with Spring Cloud, and maintain code quality and technical documentation.</td>
-                <td>08.08.2024</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Intern Intelligence</td>
-                <td>Java Developer</td>
-                <td>Developed backend services and RESTful APIs for portfolio and movie applications using Java and MySQL in an agile team environment.</td>
-                <td>10.01.2025</td>
-                <td>28.02.2025</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Desinftec</td>
-                <td>Backend Developer</td>
-                <td>Develop and maintain backend services and RESTful APIs with Java and Spring Boot, collaborate with cross-functional teams, and ensure code quality through reviews.</td>
-                <td>07.07.2025</td>
-                <td>Present</td>
-            </tr>
-        </table>
-        
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">/about</span>
+      <h2 class="section-title">Systems, not just endpoints.</h2>
+      <div class="about-text" style="margin-top:28px;">
+        <p>I'm a <strong>Backend Engineer</strong> based in Baku, Azerbaijan, currently building
+        backend services at <strong>Otogo</strong>, a B2B platform connecting car service providers
+        with businesses across the country. My focus is <strong>Java</strong> and the <strong>Spring
+        ecosystem</strong> — Spring Boot, Spring Security, Hibernate/JPA — wired into clean REST
+        APIs and dependable data models.</p>
+        <p>Alongside product work, I teach. I've spent the last two years mentoring junior developers
+        and running backend training at Developia Engineering Academy, which keeps me honest about
+        writing code other people can actually read and extend.</p>
+        <p>I care about the parts of backend work that don't show up in a demo: authentication that
+        holds up, queries that stay fast under load, and services that deploy without drama.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="fact-list">
+        <div class="fact"><span class="k">LOCATION</span><span class="v">Baku, Azerbaijan</span></div>
+        <div class="fact"><span class="k">FOCUS</span><span class="v">Java · Spring Boot · REST APIs</span></div>
+        <div class="fact"><span class="k">CURRENTLY</span><span class="v">Software Engineer @ Otogo</span></div>
+        <div class="fact"><span class="k">EDUCATION</span><span class="v">B.Sc. Computer Science, Khazar University</span></div>
+        <div class="fact"><span class="k">ALSO DOES</span><span class="v">Backend mentoring &amp; instruction</span></div>
+        <div class="fact"><span class="k">AVAILABILITY</span><span class="v">Open to new opportunities</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">/experience</span>
+        <h2 class="section-title">Where I've worked</h2>
+      </div>
+      <p class="section-sub">A chronological log of roles across product engineering, DevOps and backend instruction.</p>
     </div>
 
-    <div class="section" id="skills">
-        <h2>Computer and Software Knowledge</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Skill</th>
-                <th>Knowledge Level (%)</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Java & Spring (Backend)</td>
-                <td>92%</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Databases & ORM (SQL, JPA/Hibernate)</td>
-                <td>90%</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>REST APIs & API Tools</td>
-                <td>88%</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Version Control & Build Tools (Git, Maven, Gradle)</td>
-                <td>85%</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Testing (Unit & Integration)</td>
-                <td>80%</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Containers & DevOps (Docker, CI/CD)</td>
-                <td>85%</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Development IDEs & Tools</td>
-                <td>88%</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Software Design & Best Practices</td>
-                <td>85%</td>
-            </tr>
-        </table>
+    <div class="timeline reveal">
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">Software Engineer</span> — <span class="tl-company">Otogo</span></div>
+          <div class="tl-date">JUN 2025 — PRESENT</div>
+        </div>
+        <p class="tl-desc">Full-time · Baku, Azerbaijan · On-site</p>
+        <ul class="tl-bullets">
+          <li>Develop and maintain backend services powering Otogo, a B2B mobile platform connecting car service providers with businesses across Azerbaijan.</li>
+          <li>Built and exposed 20+ RESTful API endpoints enabling seamless communication between frontend and backend systems.</li>
+          <li>Contribute to system architecture and deployment processes as the platform scales.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">Backend Developer</span> — <span class="tl-company">Desinftec</span></div>
+          <div class="tl-date">JUL 2025 — JUN 2026</div>
+        </div>
+        <p class="tl-desc">Part-time · Baku, Azerbaijan · Hybrid</p>
+        <ul class="tl-bullets">
+          <li>Implemented JWT-based authentication and role-based authorization, securing APIs for 500+ active users.</li>
+          <li>Optimized RESTful APIs, reducing average response time by 30% through query tuning and caching.</li>
+          <li>Architected a microservices structure, improving scalability and cutting deployment time by 40%.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">Microservices</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">DevOps Engineer</span> — <span class="tl-company">QR AVAN</span></div>
+          <div class="tl-date">JAN 2026 — MAY 2026</div>
+        </div>
+        <p class="tl-desc">Freelance · Remote</p>
+        <ul class="tl-bullets">
+          <li>Supported containerized deployment workflows and CI/CD pipelines for a freelance client project.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="tl-item past">
+        <div class="tl-head">
+          <div><span class="tl-role">Backend Developer &amp; Instructor</span> — <span class="tl-company">Developia Engineering Academy</span></div>
+          <div class="tl-date">AUG 2024 — MAY 2026</div>
+        </div>
+        <p class="tl-desc">Part-time · Baku, Azerbaijan</p>
+        <ul class="tl-bullets">
+          <li>Built and sustained backend services supporting a learning platform used by 200+ students.</li>
+          <li>Delivered 15+ RESTful API endpoints connecting frontend and backend systems.</li>
+          <li>Delivered Java backend development training and mentored 30+ junior developers, with 85% successfully completing the program.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Teaching</span><span class="tag">Code Review</span>
+        </div>
+      </div>
+
+      <div class="tl-item past">
+        <div class="tl-head">
+          <div><span class="tl-role">Backend Mentor</span> — <span class="tl-company">Design and Information Technologies Club</span></div>
+          <div class="tl-date">OCT 2023 — FEB 2025</div>
+        </div>
+        <p class="tl-desc">Part-time · Baku, Azerbaijan</p>
+        <ul class="tl-bullets">
+          <li>Mentored aspiring backend developers in Java and Spring fundamentals.</li>
+          <li>Created educational content and practical exercises, helping students build portfolio-ready projects.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Java</span><span class="tag">Mentoring</span><span class="tag">Spring</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">/skills</span>
+        <h2 class="section-title">Toolkit</h2>
+      </div>
+      <p class="section-sub">Grouped by where each tool sits in the stack — not a percentage in sight.</p>
     </div>
 
-    <!-- <div class="section" id="soft-skills">
-        <h2>Soft Skills</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Skill</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Problem Solving</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Creativity</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td> Analytical Thinking</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Critical Thinking</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Leadership</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Time Management</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Community Management</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Conflict Resolution</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Presentative Skills</td>
-            </tr>
-        </table>
-    </div> -->
-
-    <div class="section" id="projects">
-        <h2>Projects</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>About the Project</th>
-                <th>Begin Date</th>
-                <th>End Date</th>
-                <th>In Use</th>
-                <th>My Role</th>
-            </tr>
-            <tr>
-    <td>1</td>
-    <td>Developed a Spring Boot-based Translate App offering real-time, accurate multilingual translations via robust APIs.</td>
-    <td>12.06.2024</td>
-    <td>22.06.2024</td>
-    <td>I use</td>
-    <td>Build all parts of the project</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>The International College in Barcelona project is a comprehensive student and course management system designed to streamline the administration of an international educational institution.</td>
-    <td>01.09.2024</td>
-    <td>08.09.2024</td>
-    <td>Used by International College in Barcelona</td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>Developed a Spring Boot Restaurant Service app for efficient management of menus, orders, and customer interactions.</td>
-    <td>01.09.2024</td>
-    <td>31.10.2024</td>
-    <td>I use</td>
-    <td>Build all parts of the project</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Online cookie ordering system - built in Java programming language and MySQL database management system</td>
-    <td>01.08.2024</td>
-    <td>30.11.2024</td>
-    <td>
-        Used by Munchigo<br>
-        URL: <a href="https://munchigo.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Munchigo</a>
-    </td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>5</td>
-    <td>Movie application system - built in Java programming language and MySQL database management system</td>
-    <td>01.01.2025</td>
-    <td>28.02.2025</td>
-    <td>Used by Intern Intelligence</td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>6</td>
-    <td>Portfolio application system - built in Java programming language and MySQL database management system</td>
-    <td>01.01.2025</td>
-    <td>28.02.2025</td>
-    <td>Used by Intern Intelligence</td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>7</td>
-    <td>Library management system - built in Java programming language and MySQL database management system</td>
-    <td>12.12.2024</td>
-    <td>30.04.2025</td>
-    <td>I use</td>
-    <td>Build all parts of the project</td>
-</tr>
-<tr>
-    <td>8</td>
-    <td>Hotel System - built in Java programming language and H2 database management system</td>
-    <td>10.02.2025</td>
-    <td>24.02.2025</td>
-    <td>I use</td>
-    <td>Build all parts of the project</td>
-</tr>
-<tr>
-    <td>9</td>
-    <td>Eracon - web-based internal management system for a construction company, built using Java (Spring Boot), H2/SQL, and HTML/CSS</td>
-    <td>01.07.2025</td>
-    <td>06.07.2025</td>
-    <td>
-        Used by Eracon<br>
-        URL: <a href="https://era-con.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Eracon</a>
-    </td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>10</td>
-    <td>Otogo - A mobile service platform that helps customers easily find nearby car services and allows service providers to manage their businesses efficiently.</td>
-    <td>21.06.2025</td>
-    <td>27.11.2025</td>
-    <td>
-        Used by Otogo<br>
-        URL: <a href="https://otogo.az/" target="_blank" style="color: #FFA500; font-weight: 600;">Otogo</a>
-    </td>
-    <td>Building the backend of the project</td>
-</tr>
-<tr>
-    <td>11</td>
-    <td>AzConPrice - Construction platform for comparing and calculating prices for building materials and services (construction cost calculation). Enables users to connect with construction professionals and suppliers across Azerbaijan.</td>
-    <td>01.09.2025</td>
-    <td>15.12.2025</td>
-    <td>
-        Used by AzConPrice<br>
-        URL: <a href="https://azconprice.az/en" target="_blank" style="color: #FFA500; font-weight: 600;">AzConPrice</a>
-    </td>
-    <td>Building the backend of the project</td>
-</tr>
-
-        </table>
+    <div class="skills-grid reveal-stagger">
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>Languages</h3><span class="idx mono">01</span></div>
+        <div class="skill-badges">
+          <span class="badge">Java SE</span><span class="badge">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>Frameworks</h3><span class="idx mono">02</span></div>
+        <div class="skill-badges">
+          <span class="badge">Spring Boot</span><span class="badge">Spring Framework</span><span class="badge">Spring Security</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>Data &amp; Persistence</h3><span class="idx mono">03</span></div>
+        <div class="skill-badges">
+          <span class="badge">MySQL</span><span class="badge">Hibernate</span><span class="badge">JPA</span><span class="badge">Liquibase</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>APIs &amp; Integration</h3><span class="idx mono">04</span></div>
+        <div class="skill-badges">
+          <span class="badge">REST APIs</span><span class="badge">Swagger</span><span class="badge">Postman</span><span class="badge">Firebase</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>Testing</h3><span class="idx mono">05</span></div>
+        <div class="skill-badges">
+          <span class="badge">JUnit</span><span class="badge">Mockito</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-head"><h3>DevOps &amp; Tooling</h3><span class="idx mono">06</span></div>
+        <div class="skill-badges">
+          <span class="badge">Docker</span><span class="badge">Docker Compose</span><span class="badge">CI/CD</span><span class="badge">Git</span><span class="badge">GitHub</span>
+        </div>
+      </div>
     </div>
 
+    <div class="lang-strip reveal">
+      <div class="lang-chip"><b>Azerbaijani</b><span class="lv">NATIVE</span></div>
+      <div class="lang-chip"><b>English</b><span class="lv">UPPER-INT</span></div>
+      <div class="lang-chip"><b>Russian</b><span class="lv">UPPER-INT</span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="section" id="education">
-        <h2>Education</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Degree</th>
-                <th>Institution</th>
-                <th>Begin Date</th>
-                <th>End Date</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Bachelor of Science in Computer Science</td>
-                <td>Khazar University</td>
-                <td>15.09.2022</td>
-                <td>Present</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Java Backend Development</td>
-                <td>Developia Engineering Academy</td>
-                <td>15.01.2024</td>
-                <td>15.06.2024</td>
-            </tr>
-        </table>
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">/projects</span>
+        <h2 class="section-title">Selected work</h2>
+      </div>
+      <p class="section-sub">Live products and internal systems I've built the backend for.</p>
     </div>
 
-    <div class="section" id="certificates">
-        <h2>Certificates</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>About the Certificate</th>
-                <th>Code</th>
-                <th>Certificate</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Java Programming</td>
-                <td>Intern Intelligence</td>
-                <td><a href="images/intern_intelligence.pdf" target="_blank">Intern Intelligence</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Java Basic</td>
-                <td>Hackerrank</td>
-                <td><a href="images/java_basic certificate.pdf" target="_blank">Java Basic</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>SQL Basic</td>
-                <td>Hackerrank</td>
-                <td><a href="images/sql_basic certificate.pdf" target="_blank">SQL Basic</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Backend Development Certification of Course Completion</td>
-                <td>Developia Engineering Academy</td>
-                <td><a href="https://www.linkedin.com/feed/update/urn:li:activity:7253660012777017344/" target="_blank">Java Backend Development</a></td>
-            </tr>
-        </table>
+    <div class="reveal">
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-name">Otogo</div>
+            <div class="project-role">B2B mobile platform · car services marketplace</div>
+          </div>
+          <span class="project-status">In production</span>
+        </div>
+        <p class="project-desc">A mobile platform connecting car service providers with businesses across
+        Azerbaijan. I build and maintain the backend that powers provider onboarding, service listings and
+        booking flows, exposed through 20+ REST endpoints consumed by the mobile client.</p>
+        <div class="project-meta">
+          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
+          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · MySQL · Docker</div></div>
+          <div><div class="m-k">Outcome</div><div class="m-v">20+ endpoints in active production use</div></div>
+        </div>
+        <div class="project-foot">
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span></div>
+          <a href="https://otogo.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-name">AzConPrice</div>
+            <div class="project-role">Construction pricing &amp; cost-calculation platform</div>
+          </div>
+          <span class="project-status">In production</span>
+        </div>
+        <p class="project-desc">A platform for comparing and calculating construction material and service
+        prices, connecting users with suppliers and professionals across Azerbaijan. I built the backend
+        powering price calculations and supplier/user data.</p>
+        <div class="project-meta">
+          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
+          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · REST APIs</div></div>
+          <div><div class="m-k">Timeline</div><div class="m-v">Sep — Dec 2025</div></div>
+        </div>
+        <div class="project-foot">
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">SQL</span></div>
+          <a href="https://azconprice.az/en" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-name">Eracon</div>
+            <div class="project-role">Internal management system for a construction company</div>
+          </div>
+          <span class="project-status">In production</span>
+        </div>
+        <p class="project-desc">A web-based internal management system built for a construction company to
+        streamline day-to-day operations, built end-to-end in about a week from schema to deployment.</p>
+        <div class="project-meta">
+          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
+          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · H2/SQL</div></div>
+          <div><div class="m-k">Timeline</div><div class="m-v">Jul 2025</div></div>
+        </div>
+        <div class="project-foot">
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">SQL</span></div>
+          <a href="https://era-con.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div>
+            <div class="project-name">Munchigo</div>
+            <div class="project-role">Online cookie ordering system</div>
+          </div>
+          <span class="project-status">In production</span>
+        </div>
+        <p class="project-desc">An online ordering system for a cookie business, handling the product
+        catalog, orders and customer data behind a straightforward storefront experience.</p>
+        <div class="project-meta">
+          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
+          <div><div class="m-k">Stack</div><div class="m-v">Java · MySQL</div></div>
+          <div><div class="m-k">Timeline</div><div class="m-v">Aug — Nov 2024</div></div>
+        </div>
+        <div class="project-foot">
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">MySQL</span></div>
+          <a href="https://munchigo.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+        </div>
+      </div>
+
+      <div class="projects-minor">
+        <div class="minor-card">
+          <h4>International College in Barcelona</h4>
+          <p>Student and course management system for an international educational institution. Built the backend.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span></div>
+        </div>
+        <div class="minor-card">
+          <h4>Restaurant Service App</h4>
+          <p>Backend for menu, order and customer-interaction management in a Spring Boot restaurant service system.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span></div>
+        </div>
+        <div class="minor-card">
+          <h4>Library Management System</h4>
+          <p>Full-stack catalog, lending and member-management system, built solo end to end.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="minor-card">
+          <h4>Movie &amp; Portfolio Applications</h4>
+          <p>Backend services for a movie catalog and a portfolio-management app, built during an internship.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">MySQL</span></div>
+        </div>
+        <div class="minor-card">
+          <h4>Hotel System</h4>
+          <p>Reservation and room-management backend built with an embedded H2 database.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">H2</span></div>
+        </div>
+        <div class="minor-card">
+          <h4>Translate App</h4>
+          <p>Spring Boot service offering real-time multilingual translations through a robust API layer.</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION / CERTS ================= -->
+<section class="section" id="education">
+  <div class="container split-grid">
+    <div class="reveal">
+      <span class="eyebrow">/education</span>
+      <h2 class="section-title" style="margin-bottom:32px;">Education</h2>
+      <div class="edu-item">
+        <h4>Bachelor of Science, Computer Science</h4>
+        <div class="edu-org">Khazar University · Baku, Azerbaijan</div>
+        <div class="edu-date">SEP 2022 — EXPECTED 2026</div>
+      </div>
+      <div class="edu-item">
+        <h4>Java Backend Development</h4>
+        <div class="edu-org">Developia Engineering Academy · Baku, Azerbaijan</div>
+        <div class="edu-date">JAN 2024 — JUN 2024</div>
+      </div>
     </div>
 
-    <div class="section" id="languages">
-        <h2>Language Skills</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Language</th>
-                <th>Reading</th>
-                <th>Writing</th>
-                <th>Speaking</th>
-                <th>Listening</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Azerbaijani</td>
-                <td>Excellent</td>
-                <td>Excellent</td>
-                <td>Excellent</td>
-                <td>Excellent</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>English</td>
-                <td>Good</td>
-                <td>Good</td>
-                <td>Average</td>
-                <td>Average</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Russian</td>
-                <td>Good</td>
-                <td>Average</td>
-                <td>Good</td>
-                <td>Good</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>French</td>
-                <td>Poor</td>
-                <td>Poor</td>
-                <td>Poor</td>
-                <td>Poor</td>
-            </tr>
-        </table>
+    <div class="reveal">
+      <span class="eyebrow">/certifications</span>
+      <h2 class="section-title" style="margin-bottom:32px;">Certifications</h2>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div><div class="c-name">Java Programming</div><div class="c-org">Intern Intelligence</div></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="cert-item">
+          <div><div class="c-name">Java (Basic)</div><div class="c-org">HackerRank</div></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="cert-item">
+          <div><div class="c-name">SQL (Basic)</div><div class="c-org">HackerRank</div></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="cert-item">
+          <div><div class="c-name">Backend Development, Certificate of Completion</div><div class="c-org">Developia Engineering Academy</div></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="section" id="contact">
-        <h2>Contact Me</h2>
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Information</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Personal Email:</td>
-                <td>aqilazizov2005@gmail.com</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Work Email:</td>
-                <td>agilazizovf@gmail.com</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>LinkedIn:</td>
-                <td><a href="https://www.linkedin.com/in/agil-azizov/" target="_blank">https://www.linkedin.com/in/agil-azizov/</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Github:</td>
-                <td><a href="https://github.com/agilazizovf" target="_blank">https://github.com/agilazizovf</a></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>YouTube:</td>
-                <td><a href="https://www.youtube.com/@agilazizovf" target="_blank">https://www.youtube.com/@agilazizovf</a></td>
-            </tr>
-        </table>
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact" style="border-bottom:none;">
+  <div class="container">
+    <div class="contact-wrap reveal">
+      <span class="eyebrow" style="justify-content:center;">/contact</span>
+      <h2 class="contact-title">Let's build something that stays up at 3am without paging you.</h2>
+      <p class="contact-sub">Open to backend engineering roles and freelance projects. Reach out directly — I read everything myself.</p>
+      <div class="contact-actions">
+        <button class="btn btn-primary" id="copyEmailBtn" data-magnetic>agilazizovf@gmail.com</button>
+        <a href="mailto:agilazizovf@gmail.com" class="btn btn-ghost" data-magnetic>Send an email →</a>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/agilazizovf" target="_blank">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/agil-azizov/" target="_blank">LinkedIn ↗</a>
+        <a href="https://www.youtube.com/@agilazizovf" target="_blank">YouTube ↗</a>
+      </div>
     </div>
-    
+  </div>
+</section>
 
-    <div class="footer">
-        <p>© 2025 Agil Azizov. All rights reserved.</p>
-    </div>
+<footer class="container footer">
+  <span>© 2026 Agil Azizov. Built with Java brain, coded in JS.</span>
+  <a href="#home" class="to-top" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
