@@ -392,12 +392,14 @@ p{ margin:0; }
   color: var(--text-faint);
 }
 .terminal-body{
-  padding: 22px 22px 26px;
+  padding: 22px 22px 10px;
   font-family: var(--font-mono);
   font-size: 13.5px;
   line-height: 1.85;
   color: var(--text-dim);
   min-height: 300px;
+  max-height: 420px;
+  overflow-y: auto;
 }
 .terminal-body .prompt{ color: var(--teal); }
 .terminal-body .path{ color: var(--text); }
@@ -405,6 +407,8 @@ p{ margin:0; }
 .term-out{ color: var(--text-dim); }
 .term-key{ color: #8fb3ff; }
 .term-str{ color: var(--amber); }
+.term-error{ color: var(--red-soft); }
+.term-hint{ color: var(--text-faint); font-style: italic; }
 .term-caret{
   display:inline-block;
   width: 7px; height: 15px;
@@ -413,6 +417,32 @@ p{ margin:0; }
   animation: caret 1s step-end infinite;
 }
 @keyframes caret{ 50%{ opacity: 0; } }
+
+/* Interactive terminal input row ----------------------------------------- */
+.terminal-input-row{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 12px 22px 18px;
+  border-top: 1px solid var(--border-soft);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+}
+.terminal-input-row .prompt{
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.terminal-input{
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  caret-color: var(--teal);
+}
+.terminal-input::placeholder{ color: var(--text-faint); }
 
 .hero-stats{
   display:grid;
@@ -641,24 +671,6 @@ p{ margin:0; }
 .project-meta .m-k{ font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
 .project-meta .m-v{ font-size: 13.5px; color: var(--text-dim); line-height:1.5; }
 .project-foot{ display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; gap: 16px; }
-
-.projects-minor{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 24px;
-}
-@media (max-width: 700px){ .projects-minor{ grid-template-columns: 1fr; } }
-.minor-card{
-  border: 1px solid var(--border);
-  border-radius: var(--radius-m);
-  padding: 20px;
-  background: var(--surface);
-  transition: border-color .3s, transform .3s var(--ease);
-}
-.minor-card:hover{ border-color: var(--teal-soft); transform: translateY(-3px); }
-.minor-card h4{ font-size: 15.5px; color: var(--text); margin-bottom: 8px; }
-.minor-card p{ font-size: 13.5px; color: var(--text-dim); line-height: 1.6; margin-bottom: 12px; }
 
 /* ==========================================================================
    Education / Certs
