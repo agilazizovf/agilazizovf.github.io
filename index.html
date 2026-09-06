@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agil Azizov — Backend Engineer</title>
-<meta name="description" content="Agil Azizov — Backend Engineer specializing in Java, Spring Boot and RESTful API architecture. Building reliable backend systems in Baku, Azerbaijan.">
+<title>Agil Azizov — Cybersecurity &amp; Systems Engineer</title>
+<meta name="description" content="Agil Azizov — Cybersecurity & Systems Engineer specializing in Linux administration, networking and cloud infrastructure, with a software engineering background in Java and Spring Boot. Based in Baku, Azerbaijan.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%230a0e12%22/><text x=%2216%22 y=%2222%22 font-size=%2218%22 text-anchor=%22middle%22 fill=%22%2345d0b5%22 font-family=%22monospace%22>A</text></svg>">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,16 +17,25 @@
   <div class="container nav-inner">
     <a href="#home" class="brand"><span class="dot"></span>agil.dev</a>
     <div class="nav-links" id="navLinks">
-      <a href="#about" data-nav>/about</a>
-      <a href="#experience" data-nav>/experience</a>
-      <a href="#skills" data-nav>/skills</a>
-      <a href="#projects" data-nav>/projects</a>
-      <a href="#education" data-nav>/education</a>
-      <a href="#contact" data-nav>/contact</a>
+      <a href="#about" data-nav data-i18n="nav.about">/about</a>
+      <a href="#experience" data-nav data-i18n="nav.experience">/experience</a>
+      <a href="#skills" data-nav data-i18n="nav.skills">/skills</a>
+      <a href="#projects" data-nav data-i18n="nav.projects">/projects</a>
+      <a href="#education" data-nav data-i18n="nav.education">/education</a>
+      <a href="#contact" data-nav data-i18n="nav.contact">/contact</a>
     </div>
     <div class="nav-cta">
+      <div class="lang-switch mono" id="langSwitch" role="group" aria-label="Language">
+        <button data-lang="en" class="lang-btn active">EN</button>
+        <button data-lang="az" class="lang-btn">AZ</button>
+        <button data-lang="ru" class="lang-btn">RU</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
       <a href="Agil_Azizov.pdf" target="_blank" class="btn btn-ghost btn-sm" style="display:none" id="navResume">résumé</a>
-      <a href="#contact" class="btn btn-primary btn-sm">Let's talk</a>
+      <a href="#contact" class="btn btn-primary btn-sm" data-i18n="nav.talk">Let's talk</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -35,31 +44,44 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" data-nav>/about</a>
-  <a href="#experience" data-nav>/experience</a>
-  <a href="#skills" data-nav>/skills</a>
-  <a href="#projects" data-nav>/projects</a>
-  <a href="#education" data-nav>/education</a>
-  <a href="#contact" data-nav>/contact</a>
+  <a href="#about" data-nav data-i18n="nav.about">/about</a>
+  <a href="#experience" data-nav data-i18n="nav.experience">/experience</a>
+  <a href="#skills" data-nav data-i18n="nav.skills">/skills</a>
+  <a href="#projects" data-nav data-i18n="nav.projects">/projects</a>
+  <a href="#education" data-nav data-i18n="nav.education">/education</a>
+  <a href="#contact" data-nav data-i18n="nav.contact">/contact</a>
+  <div class="lang-switch mono" id="langSwitchMobile" role="group" aria-label="Language" style="margin-top:20px;">
+    <button data-lang="en" class="lang-btn active">EN</button>
+    <button data-lang="az" class="lang-btn">AZ</button>
+    <button data-lang="ru" class="lang-btn">RU</button>
+  </div>
 </div>
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="home">
+  <div class="hero-parallax" id="heroParallax" aria-hidden="true">
+    <div class="p-shape p-shield">🛡</div>
+    <div class="p-shape p-lock">🔒</div>
+    <div class="p-shape p-server">🖥</div>
+    <div class="p-ring p-ring-1"></div>
+    <div class="p-ring p-ring-2"></div>
+  </div>
   <div class="container hero-grid">
     <div>
-      <div class="status-pill"><span class="pulse"></span> Open to backend engineering roles</div>
+      <div class="status-pill"><span class="pulse"></span> <span data-i18n="hero.pill">Open to Cybersecurity &amp; IT Infrastructure roles</span></div>
       <h1>
-        <span class="line">Backend engineer building</span>
-        <span class="line"><em class="accent">reliable</em> APIs at scale.</span>
+        <span class="line" data-i18n="hero.h1a">Cybersecurity &amp; Systems Engineer,</span>
+        <span class="line"><em class="accent" data-i18n="hero.h1b">Linux, Networking &amp; Cloud.</em></span>
       </h1>
-      <p class="hero-desc">
-        I'm Agil Azizov, a backend developer in Baku, Azerbaijan, focused on Java &amp; Spring Boot.
-        I design REST APIs, data models and microservices that stay fast and predictable
-        long after the demo is over.
+      <p class="hero-desc" data-i18n="hero.desc">
+        I'm Agil Azizov, an IT infrastructure &amp; cybersecurity-focused engineer in Baku, Azerbaijan.
+        I work across Linux &amp; Windows administration, networking, cloud and DevOps — securing
+        systems and keeping them running — with a software engineering background in Java &amp;
+        Spring Boot as freelance work on the side.
       </p>
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary" data-magnetic>View projects →</a>
-        <a href="Agil Azizov.pdf" target="_blank" class="btn btn-ghost" data-magnetic>Download résumé</a>
+        <a href="#projects" class="btn btn-primary" data-magnetic data-i18n="hero.viewProjects">View projects →</a>
+        <a href="Agil Azizov_Resume.pdf" target="_blank" class="btn btn-ghost" data-magnetic data-i18n="hero.downloadResume">Download résumé</a>
       </div>
       <div class="hero-socials">
         <a href="https://github.com/agilazizovf" target="_blank" aria-label="GitHub">
@@ -78,10 +100,10 @@
     </div>
 
     <div>
-      <div class="terminal reveal">
+      <div class="terminal reveal tilt-el">
         <div class="terminal-bar">
           <span style="background:#e2685f"></span><span style="background:#f0a94e"></span><span style="background:#45d0b5"></span>
-          <span class="t-title">agil@backend — zsh</span>
+          <span class="t-title">agil@secops — zsh</span>
         </div>
         <div class="terminal-body" id="terminalBody"></div>
         <div class="terminal-input-row" id="terminalInputRow">
@@ -90,9 +112,9 @@
         </div>
       </div>
       <div class="hero-stats reveal-stagger" id="heroStats">
-        <div class="hero-stat"><div class="num"><span class="accent">3+</span></div><div class="lbl">Years building APIs</div></div>
-        <div class="hero-stat"><div class="num"><span class="accent">35+</span></div><div class="lbl">Endpoints shipped</div></div>
-        <div class="hero-stat"><div class="num"><span class="accent">30+</span></div><div class="lbl">Devs mentored</div></div>
+        <div class="hero-stat"><div class="num"><span class="accent">3+</span></div><div class="lbl" data-i18n="hero.stat1">Years in IT &amp; Backend</div></div>
+        <div class="hero-stat"><div class="num"><span class="accent">20+</span></div><div class="lbl" data-i18n="hero.stat2">Systems &amp; services managed</div></div>
+        <div class="hero-stat"><div class="num"><span class="accent">30+</span></div><div class="lbl" data-i18n="hero.stat3">Developers mentored</div></div>
       </div>
     </div>
   </div>
@@ -103,28 +125,32 @@
   <div class="container about-grid">
     <div class="reveal">
       <span class="eyebrow">/about</span>
-      <h2 class="section-title">Systems, not just endpoints.</h2>
+      <h2 class="section-title" data-i18n="about.title">Infrastructure first, code as a foundation.</h2>
       <div class="about-text" style="margin-top:28px;">
-        <p>I'm a <strong>Backend Engineer</strong> based in Baku, Azerbaijan, currently building
-        backend services at <strong>Otogo</strong>, a B2B platform connecting car service providers
-        with businesses across the country. My focus is <strong>Java</strong> and the <strong>Spring
-        ecosystem</strong> — Spring Boot, Spring Security, Hibernate/JPA — wired into clean REST
-        APIs and dependable data models.</p>
-        <p>Alongside product work, I teach. I've spent the last two years mentoring junior developers
-        and running backend training at Developia Engineering Academy, which keeps me honest about
-        writing code other people can actually read and extend.</p>
-        <p>I care about the parts of backend work that don't show up in a demo: authentication that
-        holds up, queries that stay fast under load, and services that deploy without drama.</p>
+        <p data-i18n="about.p1">I'm an <strong>IT Infrastructure &amp; Cybersecurity-focused engineer</strong> based in Baku,
+        Azerbaijan, currently working as a <strong>DevOps Engineer</strong> at <strong>QRAVAN</strong> and previously as an
+        <strong>IT Infrastructure &amp; System Administration Specialist</strong> at <strong>Brain Solutions</strong>. My day-to-day
+        centers on <strong>Linux &amp; Windows administration</strong>, <strong>networking</strong> (TCP/IP, DNS, DHCP, SSH, VPN),
+        <strong>cloud &amp; DevOps</strong> tooling, and applying <strong>cybersecurity fundamentals</strong> to keep systems
+        reliable and secure.</p>
+        <p data-i18n="about.p2">Before moving into infrastructure and security, I spent several years as a
+        <strong>backend software engineer</strong>, building REST APIs and services in <strong>Java</strong> and
+        <strong>Spring Boot</strong>. I still take on freelance backend work, and that engineering background now shapes
+        how I approach systems: I understand the applications running on the infrastructure I manage, not just the
+        infrastructure itself.</p>
+        <p data-i18n="about.p3">I've also spent time mentoring junior developers and teaching backend fundamentals — a habit
+        that carries over into how I document systems, write runbooks, and make infrastructure easy for a team to
+        actually operate.</p>
       </div>
     </div>
     <div class="reveal">
       <div class="fact-list">
-        <div class="fact"><span class="k">LOCATION</span><span class="v">Baku, Azerbaijan</span></div>
-        <div class="fact"><span class="k">FOCUS</span><span class="v">Java · Spring Boot · REST APIs</span></div>
-        <div class="fact"><span class="k">CURRENTLY</span><span class="v">Software Engineer @ Otogo</span></div>
-        <div class="fact"><span class="k">EDUCATION</span><span class="v">B.Sc. Computer Science, Khazar University</span></div>
-        <div class="fact"><span class="k">ALSO DOES</span><span class="v">Backend mentoring &amp; instruction</span></div>
-        <div class="fact"><span class="k">AVAILABILITY</span><span class="v">Open to new opportunities</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.location.k">LOCATION</span><span class="v">Baku, Azerbaijan</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.focus.k">FOCUS</span><span class="v" data-i18n="about.fact.focus.v">Linux · Networking · Cloud · Cybersecurity</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.currently.k">CURRENTLY</span><span class="v" data-i18n="about.fact.currently.v">DevOps Engineer @ QRAVAN</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.education.k">EDUCATION</span><span class="v" data-i18n="about.fact.education.v">M.Sc. Cryptography, Azerbaijan Technical University</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.also.k">ALSO DOES</span><span class="v" data-i18n="about.fact.also.v">Freelance backend engineering (Java/Spring Boot)</span></div>
+        <div class="fact"><span class="k" data-i18n="about.fact.avail.k">AVAILABILITY</span><span class="v" data-i18n="about.fact.avail.v">Open to new opportunities</span></div>
       </div>
     </div>
   </div>
@@ -136,87 +162,58 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow">/experience</span>
-        <h2 class="section-title">Where I've worked</h2>
+        <h2 class="section-title" data-i18n="exp.title">Where I've worked</h2>
       </div>
-      <p class="section-sub">A chronological log of roles across product engineering, DevOps and backend instruction.</p>
+      <p class="section-sub" data-i18n="exp.sub">A chronological log of roles across IT infrastructure, DevOps, cybersecurity and backend engineering.</p>
     </div>
 
     <div class="timeline reveal">
 
       <div class="tl-item">
         <div class="tl-head">
-          <div><span class="tl-role">Software Engineer</span> — <span class="tl-company">OTOGO LLC</span></div>
-          <div class="tl-date">JUN 2025 — PRESENT</div>
-        </div>
-        <p class="tl-desc">Part-time · Baku, Azerbaijan · On-site</p>
-        <ul class="tl-bullets">
-          <li>Develop and maintain backend services powering Otogo, a B2B mobile platform connecting car service providers with businesses across Azerbaijan.</li>
-          <li>Built and exposed 20+ RESTful API endpoints enabling seamless communication between frontend and backend systems.</li>
-          <li>Contribute to system architecture and deployment processes as the platform scales.</li>
-        </ul>
-        <div class="tag-row">
-          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">REST APIs</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-head">
-          <div><span class="tl-role">Backend Developer</span> — <span class="tl-company">Desinftec LLC</span></div>
-          <div class="tl-date">JUL 2025 — JUN 2026</div>
-        </div>
-        <p class="tl-desc">Part-time · Baku, Azerbaijan · Hybrid</p>
-        <ul class="tl-bullets">
-          <li>Implemented JWT-based authentication and role-based authorization, securing APIs for 500+ active users.</li>
-          <li>Optimized RESTful APIs, reducing average response time by 30% through query tuning and caching.</li>
-          <li>Architected a microservices structure, improving scalability and cutting deployment time by 40%.</li>
-        </ul>
-        <div class="tag-row">
-          <span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">Microservices</span><span class="tag">CI/CD</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-head">
           <div><span class="tl-role">DevOps Engineer</span> — <span class="tl-company">QRAVAN LLC</span></div>
-          <div class="tl-date">JAN 2026 — MAY 2026</div>
+          <div class="tl-date">JAN 2026 — PRESENT</div>
         </div>
-        <p class="tl-desc">Freelance · Remote</p>
+        <p class="tl-desc" data-i18n="exp.qravan.desc">Remote</p>
         <ul class="tl-bullets">
-          <li>Supported containerized deployment workflows and CI/CD pipelines for a freelance client project.</li>
+          <li data-i18n="exp.qravan.b1">Containerized 4 backend services using Docker and Docker Compose, cutting local environment setup time from a full day to under an hour.</li>
+          <li data-i18n="exp.qravan.b2">Configured and maintained CI/CD pipelines, reducing deployment time from 10 minutes to 2 minutes.</li>
+          <li data-i18n="exp.qravan.b3">Supported containerized deployment workflows for a freelance client project, improving release reliability.</li>
         </ul>
         <div class="tag-row">
-          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">CI/CD</span>
+          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">CI/CD</span><span class="tag">Linux</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role" data-i18n="exp.brain.role">IT Infrastructure &amp; System Administration Specialist</span> — <span class="tl-company">Brain Solutions</span></div>
+          <div class="tl-date">DEC 2025 — JUN 2026</div>
+        </div>
+        <p class="tl-desc" data-i18n="exp.brain.desc">On-site · Baku, Azerbaijan</p>
+        <ul class="tl-bullets">
+          <li data-i18n="exp.brain.b1">Managed and maintained Linux and Windows systems, handling user accounts, permissions, services and system troubleshooting.</li>
+          <li data-i18n="exp.brain.b2">Configured and maintained network services including TCP/IP, DNS, DHCP, SSH and VPN to ensure reliable system connectivity.</li>
+          <li data-i18n="exp.brain.b3">Automated routine administrative tasks using Bash and Python scripting, improving operational efficiency and reducing manual work.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Linux</span><span class="tag">Windows Server</span><span class="tag">Networking</span><span class="tag">Bash</span><span class="tag">Python</span>
         </div>
       </div>
 
       <div class="tl-item past">
         <div class="tl-head">
-          <div><span class="tl-role">Backend Developer &amp; Instructor</span> — <span class="tl-company">Developia Engineering Academy</span></div>
-          <div class="tl-date">AUG 2024 — MAY 2026</div>
+          <div><span class="tl-role" data-i18n="exp.freelance.role">Freelance Software Engineer / Backend Developer</span></div>
+          <div class="tl-date">OCT 2023 — JUN 2026</div>
         </div>
-        <p class="tl-desc">Part-time · Baku, Azerbaijan</p>
+        <p class="tl-desc" data-i18n="exp.freelance.desc">Part-time &amp; freelance · Baku, Azerbaijan · Otogo LLC · Desinftec LLC · Developia Engineering Academy · Design and Information Technologies Club</p>
         <ul class="tl-bullets">
-          <li>Built and sustained backend services supporting a learning platform used by 200+ students.</li>
-          <li>Delivered 15+ RESTful API endpoints connecting frontend and backend systems.</li>
-          <li>Delivered Java backend development training and mentored 30+ junior developers, with 85% successfully completing the program.</li>
+          <li data-i18n="exp.freelance.b1">Built and maintained REST APIs and backend services in Java &amp; Spring Boot across several freelance and part-time engagements, including 35+ endpoints shipped for production platforms.</li>
+          <li data-i18n="exp.freelance.b2">Implemented JWT-based authentication and role-based authorization, secured APIs for 500+ active users, and optimized response times by ~30% through query tuning and caching.</li>
+          <li data-i18n="exp.freelance.b3">Delivered backend development training and mentored 30+ junior developers, with 85% successfully completing the program.</li>
         </ul>
         <div class="tag-row">
-          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Teaching</span><span class="tag">Code Review</span>
-        </div>
-      </div>
-
-      <div class="tl-item past">
-        <div class="tl-head">
-          <div><span class="tl-role">Backend Mentor</span> — <span class="tl-company">Design and Information Technologies Club</span></div>
-          <div class="tl-date">OCT 2023 — FEB 2025</div>
-        </div>
-        <p class="tl-desc">Part-time · Baku, Azerbaijan</p>
-        <ul class="tl-bullets">
-          <li>Mentored aspiring backend developers in Java and Spring fundamentals.</li>
-          <li>Created educational content and practical exercises, helping students build portfolio-ready projects.</li>
-        </ul>
-        <div class="tag-row">
-          <span class="tag">Java</span><span class="tag">Mentoring</span><span class="tag">Spring</span>
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Security</span><span class="tag">MySQL</span><span class="tag">Mentoring</span>
         </div>
       </div>
 
@@ -230,54 +227,54 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow">/skills</span>
-        <h2 class="section-title">Toolkit</h2>
+        <h2 class="section-title" data-i18n="skills.title">Toolkit</h2>
       </div>
-      <p class="section-sub">Grouped by where each tool sits in the stack — not a percentage in sight.</p>
+      <p class="section-sub" data-i18n="skills.sub">Grouped by where each tool sits in the stack — not a percentage in sight.</p>
     </div>
 
     <div class="skills-grid reveal-stagger">
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>Languages</h3><span class="idx mono">01</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.os">Operating Systems</h3><span class="idx mono">01</span></div>
         <div class="skill-badges">
-          <span class="badge">Java SE</span><span class="badge">SQL</span>
+          <span class="badge">Linux</span><span class="badge">Ubuntu</span><span class="badge">Windows</span><span class="badge">Windows Server</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>Frameworks</h3><span class="idx mono">02</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.sysadmin">System Administration</h3><span class="idx mono">02</span></div>
         <div class="skill-badges">
-          <span class="badge">Spring Boot</span><span class="badge">Spring Framework</span><span class="badge">Spring Security</span>
+          <span class="badge">User &amp; Group Mgmt</span><span class="badge">File Systems &amp; Permissions</span><span class="badge">Process &amp; Service Mgmt</span><span class="badge">Troubleshooting</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>Data &amp; Persistence</h3><span class="idx mono">03</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.networking">Networking</h3><span class="idx mono">03</span></div>
         <div class="skill-badges">
-          <span class="badge">MySQL</span><span class="badge">Hibernate</span><span class="badge">JPA</span><span class="badge">Liquibase</span>
+          <span class="badge">TCP/IP</span><span class="badge">DNS</span><span class="badge">DHCP</span><span class="badge">SSH</span><span class="badge">VPN</span><span class="badge">Firewalls</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>APIs &amp; Integration</h3><span class="idx mono">04</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.cloud">Cloud &amp; DevOps</h3><span class="idx mono">04</span></div>
         <div class="skill-badges">
-          <span class="badge">REST APIs</span><span class="badge">Swagger</span><span class="badge">Postman</span><span class="badge">Firebase</span>
+          <span class="badge">AWS</span><span class="badge">Azure</span><span class="badge">Docker</span><span class="badge">Docker Compose</span><span class="badge">CI/CD</span><span class="badge">Nginx</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>Testing</h3><span class="idx mono">05</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.security">Cybersecurity</h3><span class="idx mono">05</span></div>
         <div class="skill-badges">
-          <span class="badge">JUnit</span><span class="badge">Mockito</span>
+          <span class="badge">Network Security</span><span class="badge">IAM</span><span class="badge">Vulnerability Mgmt</span><span class="badge">Security Monitoring</span><span class="badge">SIEM Fundamentals</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-card-head"><h3>DevOps &amp; Tooling</h3><span class="idx mono">06</span></div>
+      <div class="skill-card tilt-el">
+        <div class="skill-card-head"><h3 data-i18n="skills.backend">Backend &amp; Scripting</h3><span class="idx mono">06</span></div>
         <div class="skill-badges">
-          <span class="badge">Docker</span><span class="badge">Docker Compose</span><span class="badge">CI/CD</span><span class="badge">Git</span><span class="badge">GitHub</span>
+          <span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">Spring Security</span><span class="badge">MySQL</span><span class="badge">Python</span><span class="badge">Bash</span><span class="badge">SQL</span>
         </div>
       </div>
     </div>
 
     <div class="lang-strip reveal">
-      <div class="lang-chip"><b>Azerbaijani</b><span class="lv">NATIVE</span></div>
-      <div class="lang-chip"><b>English</b><span class="lv">UPPER-INT</span></div>
-      <div class="lang-chip"><b>Russian</b><span class="lv">UPPER-INT</span></div>
+      <div class="lang-chip"><b data-i18n="lang.az">Azerbaijani</b><span class="lv" data-i18n="lang.native">NATIVE</span></div>
+      <div class="lang-chip"><b data-i18n="lang.en">English</b><span class="lv" data-i18n="lang.upperint">UPPER-INT</span></div>
+      <div class="lang-chip"><b data-i18n="lang.ru">Russian</b><span class="lv" data-i18n="lang.upperint">UPPER-INT</span></div>
     </div>
   </div>
 </section>
@@ -288,140 +285,119 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow">/projects</span>
-        <h2 class="section-title">Selected work</h2>
+        <h2 class="section-title" data-i18n="projects.title">Selected work</h2>
       </div>
-      <p class="section-sub">Live products and internal systems I've built the backend for.</p>
+      <p class="section-sub" data-i18n="projects.sub">Live products and internal systems I've built and deployed the backend and infrastructure for.</p>
     </div>
 
     <div class="reveal">
 
-      <div class="project-card">
+      <div class="project-card tilt-el">
         <div class="project-top">
           <div>
             <div class="project-name">Karier</div>
-            <div class="project-role">Career platform · job seekers &amp; employers</div>
+            <div class="project-role" data-i18n="proj.karier.role">Career platform · job seekers &amp; employers</div>
           </div>
-          <span class="project-status">In development</span>
+          <span class="project-status" data-i18n="status.dev">In development</span>
         </div>
-        <p class="project-desc">A career platform connecting job seekers with employers across
-        Azerbaijan. I build and maintain the backend services behind profiles, listings and
+        <p class="project-desc" data-i18n="proj.karier.desc">A career platform connecting job seekers with employers across
+        Azerbaijan. I build and maintain the backend services and deployment setup behind profiles, listings and
         applications, exposed through REST endpoints consumed by the web client.</p>
         <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · MySQL</div></div>
-          <div><div class="m-k">Outcome</div><div class="m-v">Live platform in active use</div></div>
+          <div><div class="m-k" data-i18n="meta.role">Role</div><div class="m-v" data-i18n="proj.karier.metaRole">Backend &amp; deployment</div></div>
+          <div><div class="m-k" data-i18n="meta.stack">Stack</div><div class="m-v">Java · Spring Boot · MySQL</div></div>
+          <div><div class="m-k" data-i18n="meta.outcome">Outcome</div><div class="m-v" data-i18n="proj.karier.outcome">Live platform in active use</div></div>
         </div>
         <div class="project-foot">
           <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span></div>
-          <a href="https://karier.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+          <a href="https://karier.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic data-i18n="visitSite">Visit site →</a>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card tilt-el">
         <div class="project-top">
           <div>
             <div class="project-name">Otogo</div>
-            <div class="project-role">B2B mobile platform · car services marketplace</div>
+            <div class="project-role" data-i18n="proj.otogo.role">B2B mobile platform · car services marketplace</div>
           </div>
-          <span class="project-status">In production</span>
+          <span class="project-status" data-i18n="status.prod">In production</span>
         </div>
-        <p class="project-desc">A mobile platform connecting car service providers with businesses across
-        Azerbaijan. I build and maintain the backend that powers provider onboarding, service listings and
-        booking flows, exposed through 20+ REST endpoints consumed by the mobile client.</p>
+        <p class="project-desc" data-i18n="proj.otogo.desc">A mobile platform connecting car service providers with businesses across
+        Azerbaijan. I containerized the backend with Docker, set up the deployment workflow, and maintain the services that power
+        provider onboarding, service listings and booking flows across 20+ REST endpoints.</p>
         <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · MySQL · Docker</div></div>
-          <div><div class="m-k">Outcome</div><div class="m-v">20+ endpoints in active production use</div></div>
+          <div><div class="m-k" data-i18n="meta.role">Role</div><div class="m-v" data-i18n="proj.otogo.metaRole">Backend &amp; DevOps</div></div>
+          <div><div class="m-k" data-i18n="meta.stack">Stack</div><div class="m-v">Java · Spring Boot · MySQL · Docker</div></div>
+          <div><div class="m-k" data-i18n="meta.outcome">Outcome</div><div class="m-v" data-i18n="proj.otogo.outcome">20+ endpoints in active production use</div></div>
         </div>
         <div class="project-foot">
-          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span></div>
-          <a href="https://otogo.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Docker</span></div>
+          <a href="https://otogo.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic data-i18n="visitSite">Visit site →</a>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card tilt-el">
         <div class="project-top">
           <div>
             <div class="project-name">AzConPrice</div>
-            <div class="project-role">Construction pricing &amp; cost-calculation platform</div>
+            <div class="project-role" data-i18n="proj.azcon.role">Construction pricing &amp; cost-calculation platform</div>
           </div>
-          <span class="project-status">In production</span>
+          <span class="project-status" data-i18n="status.prod">In production</span>
         </div>
-        <p class="project-desc">A platform for comparing and calculating construction material and service
-        prices, connecting users with suppliers and professionals across Azerbaijan. I built the backend
-        powering price calculations and supplier/user data.</p>
+        <p class="project-desc" data-i18n="proj.azcon.desc">A platform for comparing and calculating construction material and service
+        prices, connecting users with suppliers and professionals across Azerbaijan. I built the backend and set up the
+        environment powering price calculations and supplier/user data.</p>
         <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · REST APIs</div></div>
-          <div><div class="m-k">Timeline</div><div class="m-v">Sep — Dec 2025</div></div>
+          <div><div class="m-k" data-i18n="meta.role">Role</div><div class="m-v" data-i18n="proj.azcon.metaRole">Backend build</div></div>
+          <div><div class="m-k" data-i18n="meta.stack">Stack</div><div class="m-v">Java · Spring Boot · REST APIs</div></div>
+          <div><div class="m-k" data-i18n="meta.timeline">Timeline</div><div class="m-v">Sep — Dec 2025</div></div>
         </div>
         <div class="project-foot">
           <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">SQL</span></div>
-          <a href="https://azconprice.az/en" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+          <a href="https://azconprice.az/en" target="_blank" class="btn btn-ghost btn-sm" data-magnetic data-i18n="visitSite">Visit site →</a>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card tilt-el">
         <div class="project-top">
           <div>
             <div class="project-name">Eracon</div>
-            <div class="project-role">Internal management system for a construction company</div>
+            <div class="project-role" data-i18n="proj.eracon.role">Internal management system for a construction company</div>
           </div>
-          <span class="project-status">In production</span>
+          <span class="project-status" data-i18n="status.prod">In production</span>
         </div>
-        <p class="project-desc">A web-based internal management system built for a construction company to
-        streamline day-to-day operations, built end-to-end in about a week from schema to deployment.</p>
+        <p class="project-desc" data-i18n="proj.eracon.desc">A web-based internal management system built for a construction company to
+        streamline day-to-day operations, built and deployed end-to-end in about a week from schema to production.</p>
         <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Java · Spring Boot · H2/SQL</div></div>
-          <div><div class="m-k">Timeline</div><div class="m-v">Jul 2025</div></div>
+          <div><div class="m-k" data-i18n="meta.role">Role</div><div class="m-v" data-i18n="proj.eracon.metaRole">Backend build</div></div>
+          <div><div class="m-k" data-i18n="meta.stack">Stack</div><div class="m-v">Java · Spring Boot · H2/SQL</div></div>
+          <div><div class="m-k" data-i18n="meta.timeline">Timeline</div><div class="m-v">Jul 2025</div></div>
         </div>
         <div class="project-foot">
           <div class="tag-row"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">SQL</span></div>
-          <a href="https://era-con.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+          <a href="https://era-con.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic data-i18n="visitSite">Visit site →</a>
         </div>
       </div>
 
-      <!-- <div class="project-card">
-        <div class="project-top">
-          <div>
-            <div class="project-name">Munchigo</div>
-            <div class="project-role">Online cookie ordering system</div>
-          </div>
-          <span class="project-status">In production</span>
-        </div>
-        <p class="project-desc">An online ordering system for a cookie business, handling the product
-        catalog, orders and customer data behind a straightforward storefront experience.</p>
-        <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">Backend build</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Java · MySQL</div></div>
-          <div><div class="m-k">Timeline</div><div class="m-v">Aug — Nov 2024</div></div>
-        </div>
-        <div class="project-foot">
-          <div class="tag-row"><span class="tag">Java</span><span class="tag">MySQL</span></div>
-          <a href="https://munchigo.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
-        </div>
-      </div> -->
-
-      <div class="project-card">
+      <div class="project-card tilt-el">
         <div class="project-top">
           <div>
             <div class="project-name">QR AVAN</div>
-            <div class="project-role">Discount &amp; cashback app · QR-based partner rewards</div>
+            <div class="project-role" data-i18n="proj.qravan.role">Discount &amp; cashback app · QR-based partner rewards</div>
           </div>
-          <span class="project-status">In production</span>
+          <span class="project-status" data-i18n="status.prod">In production</span>
         </div>
-        <p class="project-desc">A discount and cashback app where users scan QR codes at partner
-        locations across Azerbaijan for daily discounts and loyalty rewards. I supported the
-        containerized deployment workflows and CI/CD pipelines behind the platform.</p>
+        <p class="project-desc" data-i18n="proj.qravanproj.desc">A discount and cashback app where users scan QR codes at partner
+        locations across Azerbaijan for daily discounts and loyalty rewards. I containerized backend services with Docker and
+        Docker Compose and built the CI/CD pipeline behind the platform, cutting deployment time from 10 minutes to 2.</p>
         <div class="project-meta">
-          <div><div class="m-k">Role</div><div class="m-v">DevOps support</div></div>
-          <div><div class="m-k">Stack</div><div class="m-v">Docker · Docker Compose · CI/CD</div></div>
-          <div><div class="m-k">Timeline</div><div class="m-v">Jan — May 2026</div></div>
+          <div><div class="m-k" data-i18n="meta.role">Role</div><div class="m-v" data-i18n="proj.qravanproj.metaRole">DevOps</div></div>
+          <div><div class="m-k" data-i18n="meta.stack">Stack</div><div class="m-v">Docker · Docker Compose · CI/CD</div></div>
+          <div><div class="m-k" data-i18n="meta.timeline">Timeline</div><div class="m-v">Jan 2026 — Present</div></div>
         </div>
         <div class="project-foot">
           <div class="tag-row"><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
-          <a href="https://qravan.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic>Visit site →</a>
+          <a href="https://qravan.az/" target="_blank" class="btn btn-ghost btn-sm" data-magnetic data-i18n="visitSite">Visit site →</a>
         </div>
       </div>
 
@@ -434,37 +410,38 @@
   <div class="container split-grid">
     <div class="reveal">
       <span class="eyebrow">/education</span>
-      <h2 class="section-title" style="margin-bottom:32px;">Education</h2>
+      <h2 class="section-title" style="margin-bottom:32px;" data-i18n="edu.title">Education</h2>
       <div class="edu-item">
-        <h4>B.Sc. Computer Science</h4>
+        <h4>Master of Science</h4>
+        <div class="edu-org">Azerbaijan Technical University · Baku, Azerbaijan</div>
+        <div class="edu-date" data-i18n="edu.specialization">Specialization: Cryptography</div>
+        <div class="edu-date">SEP 2026 — PRESENT</div>
+      </div>
+      <div class="edu-item">
+        <h4 data-i18n="edu.bsc">B.Sc. Computer Science</h4>
         <div class="edu-org">Khazar University · Baku, Azerbaijan</div>
         <div class="edu-date">SEP 2022 — JUN 2026</div>
       </div>
-      <!-- <div class="edu-item">
-        <h4>Java Backend Development</h4>
-        <div class="edu-org">Developia Engineering Academy · Baku, Azerbaijan</div>
-        <div class="edu-date">JAN 2024 — JUN 2024</div>
-      </div> -->
     </div>
 
     <div class="reveal">
       <span class="eyebrow">/certifications</span>
-      <h2 class="section-title" style="margin-bottom:32px;">Certifications</h2>
+      <h2 class="section-title" style="margin-bottom:32px;" data-i18n="cert.title">Certifications</h2>
       <div class="cert-list">
         <div class="cert-item">
           <div><div class="c-name">Java Programming</div><div class="c-org">Intern Intelligence</div></div>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <div class="cert-item">
-          <div><div class="c-name">Java (Basic)</div><div class="c-org">HackerRank</div></div>
+          <div><div class="c-name" data-i18n="cert.javabasic">Java (Basic)</div><div class="c-org">HackerRank</div></div>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <div class="cert-item">
-          <div><div class="c-name">SQL (Basic)</div><div class="c-org">HackerRank</div></div>
+          <div><div class="c-name" data-i18n="cert.sqlbasic">SQL (Basic)</div><div class="c-org">HackerRank</div></div>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <div class="cert-item">
-          <div><div class="c-name">Backend Development, Certificate of Completion</div><div class="c-org">Developia Engineering Academy</div></div>
+          <div><div class="c-name" data-i18n="cert.backend">Backend Development, Certificate of Completion</div><div class="c-org">Developia Engineering Academy</div></div>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </div>
       </div>
@@ -477,11 +454,11 @@
   <div class="container">
     <div class="contact-wrap reveal">
       <span class="eyebrow" style="justify-content:center;">/contact</span>
-      <h2 class="contact-title">Let's build something that stays up at 3am without paging you.</h2>
-      <p class="contact-sub">Open to backend engineering roles and freelance projects. Reach out directly — I read everything myself.</p>
+      <h2 class="contact-title" data-i18n="contact.title">Let's secure and build something that stays up at 3am without paging you.</h2>
+      <p class="contact-sub" data-i18n="contact.sub">Open to IT infrastructure, DevOps and cybersecurity roles, plus freelance backend projects. Reach out directly — I read everything myself.</p>
       <div class="contact-actions">
         <button class="btn btn-primary" id="copyEmailBtn" data-magnetic>agilazizovf@gmail.com</button>
-        <a href="mailto:agilazizovf@gmail.com" class="btn btn-ghost" data-magnetic>Send an email →</a>
+        <a href="mailto:agilazizovf@gmail.com" class="btn btn-ghost" data-magnetic data-i18n="contact.send">Send an email →</a>
       </div>
       <div class="contact-links">
         <a href="https://github.com/agilazizovf" target="_blank">GitHub ↗</a>
@@ -493,7 +470,7 @@
 </section>
 
 <footer class="container footer">
-  <span>© 2026 Agil Azizov. Built with Java brain, coded in JS.</span>
+  <span data-i18n="footer.text">© 2026 Agil Azizov. Built with a Linux brain, secured like production.</span>
   <a href="#home" class="to-top" aria-label="Back to top">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </a>
