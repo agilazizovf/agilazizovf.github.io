@@ -421,18 +421,20 @@ h1 { font-size: clamp(46px, 6vw, 72px); }
 }
 .certs { list-style: none; }
 .certs li { border-bottom: 1px solid var(--border); }
-.certs a, .certs li > span:first-child {
+.certs a, .certs li:not(:has(a)) {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 16px;
   padding: 14px 0;
   text-decoration: none;
 }
 .certs a:hover { color: var(--accent); }
-.certs span span, .certs a span {
+.certs a span, .certs li:not(:has(a)) > span:last-child {
   color: var(--text-faint);
   font-size: 13px;
   font-family: var(--mono);
+  text-align: right;
 }
 
 /* Experience ------------------------------------------------------------ */
@@ -680,6 +682,14 @@ h1 { font-size: clamp(46px, 6vw, 72px); }
   h1 { font-size: 42px; }
   .project header { flex-direction: column; }
   .kind-row { justify-content: flex-start; }
+  .certs a, .certs li:not(:has(a)) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+  .certs a span, .certs li:not(:has(a)) > span:last-child {
+    text-align: right;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
