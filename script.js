@@ -2,22 +2,26 @@ const EMAIL = "agilazizovf@gmail.com";
 
 const EXTRA = {
   en: {
+    "name": "Agil Azizov",
     "meta.title": "Agil Azizov — Software Engineer",
     "meta.desc": "Agil Azizov is a backend-focused software engineer in Baku. He builds production APIs, data access, and deployment workflows with Java, Kotlin, Spring Boot, SQL, Docker, and CI/CD.",
     "contact.copied": "Copied",
     "theme.toLight": "Switch to light theme",
     "theme.toDark": "Switch to dark theme",
     "menu.open": "Open menu",
-    "menu.close": "Close menu"
+    "menu.close": "Close menu",
+    "lang.label": "Language"
   },
   az: {
-    "meta.title": "Agil Əzizov — Proqram Mühəndisi",
-    "meta.desc": "Agil Əzizov Bakıda backend yönümlü proqram mühəndisidir. Java, Kotlin, Spring Boot, SQL, Docker və CI/CD ilə produksiya API-ləri, data access və deployment qurur.",
+    "name": "Aqil Əzizov",
+    "meta.title": "Aqil Əzizov — Proqram Mühəndisi",
+    "meta.desc": "Aqil Əzizov Bakıda backend yönümlü proqram mühəndisidir. Java, Kotlin, Spring Boot, SQL, Docker və CI/CD ilə produksiya API-ləri, data access və deployment qurur.",
     "contact.copied": "Kopyalandı",
     "theme.toLight": "İşıqlı temaya keç",
     "theme.toDark": "Qaranlıq temaya keç",
     "menu.open": "Menyunu aç",
     "menu.close": "Menyunu bağla",
+    "lang.label": "Dil",
     "skip": "Məzmuna keç",
     "nav.home": "Əsas",
     "nav.about": "Haqqımda",
@@ -219,15 +223,6 @@ const EXTRA = {
     "proj.ka.approach": "Bu üç axın ətrafında Spring Boot, MySQL və REST endpoint-lər.",
     "proj.ka.challenge": "Məhsul dəyişərkən API sabit qalmalıdır. Bu, bitmiş produksiya sistemi deyil.",
     "proj.ka.concepts": "REST, relyasiya verilənləri, deployment",
-    "proj.ms.name": "Book, Order və User servisləri",
-    "proj.ms.sub": "Şəxsi · servis sərhədləri",
-    "kind.personal": "Şəxsi",
-    "proj.ms.desc": "Book, order və user-i Eureka reyestrinin arxasında ayrı servislərə bölən şəxsi Spring Boot layihəsi. Sərhədlərin öyrənilməsidir, işlətdiyim məhsul deyil.",
-    "proj.ms.problem": "Bir tətbiq eyni səbəbdən dəyişməyən üç həyat dövrəsini gizlədirdi.",
-    "proj.ms.contrib": "Onları servislərə və reyestrə böldüm, order servisini digər ikisinə bağladım.",
-    "proj.ms.approach": "Java 17, Spring Boot 3, Eureka server, order servisindən OpenFeign, saxlama üçün JPA və MySQL, girişdə Bean Validation.",
-    "proj.ms.challenge": "Servisin hansı verilənə sahib olduğunu və sahib olmadığı veriləni necə istədiyini qərarlaşdırmaq. Bunu produksiya trafiki kimi göstərmədən.",
-    "proj.ms.concepts": "Servis sərhədləri, discovery, API müştəriləri, relyasiya saxlancı",
     "proj.more": "Digər repozitoriyalar GitHub-dadır",
     "eng.title": "Sistemlər necə qurulur",
     "eng.lead": "Başımda ayrı saxladığım iki yol, sonra bunun göründüyü üç iş. İşəgötürənin daxili detalları kənarda qalır.",
@@ -263,13 +258,15 @@ const EXTRA = {
     "footer.top": "Yuxarı qayıt"
   },
   ru: {
-    "meta.title": "Агиль Азизов — Software Engineer",
-    "meta.desc": "Агиль Азизов — backend-ориентированный software engineer в Баку. Продакшен API, доступ к данным и выкладка на Java, Kotlin, Spring Boot, SQL, Docker и CI/CD.",
+    "name": "Агил Азизов",
+    "meta.title": "Агил Азизов — Software Engineer",
+    "meta.desc": "Агил Азизов — backend-ориентированный software engineer в Баку. Продакшен API, доступ к данным и выкладка на Java, Kotlin, Spring Boot, SQL, Docker и CI/CD.",
     "contact.copied": "Скопировано",
     "theme.toLight": "Включить светлую тему",
     "theme.toDark": "Включить тёмную тему",
     "menu.open": "Открыть меню",
     "menu.close": "Закрыть меню",
+    "lang.label": "Язык",
     "skip": "К содержанию",
     "nav.home": "Главная",
     "nav.about": "Обо мне",
@@ -471,15 +468,6 @@ const EXTRA = {
     "proj.ka.approach": "Spring Boot, MySQL и REST вокруг этих трёх потоков.",
     "proj.ka.challenge": "API должен оставаться стабильным, пока продукт ещё меняется. Это не законченная прод-система.",
     "proj.ka.concepts": "REST, реляционные данные, выкладка",
-    "proj.ms.name": "Сервисы Book, Order и User",
-    "proj.ms.sub": "Личный · границы сервисов",
-    "kind.personal": "Личный",
-    "proj.ms.desc": "Личный проект на Spring Boot: book, order и user как отдельные сервисы за реестром Eureka. Это изучение границ, не продукт, который я эксплуатирую.",
-    "proj.ms.problem": "Одно приложение прятало три жизненных цикла, которые меняются не по одной причине.",
-    "proj.ms.contrib": "Разделил их на сервисы и реестр и подключил order к двум другим.",
-    "proj.ms.approach": "Java 17, Spring Boot 3, сервер Eureka, OpenFeign из order, JPA и MySQL для хранения, Bean Validation на входе.",
-    "proj.ms.challenge": "Решить, какими данными сервис владеет и как он просит чужие, не выдавая это за прод-трафик.",
-    "proj.ms.concepts": "Границы сервисов, discovery, API-клиенты, реляционное хранение",
     "proj.more": "Остальные репозитории на GitHub",
     "eng.title": "Как устроены системы",
     "eng.lead": "Два пути, которые я держу отдельно, и три работы, где это проявилось. Внутренности работодателей сюда не входят.",
@@ -541,14 +529,20 @@ function applyLanguage(next) {
     const key = el.getAttribute("data-i18n");
     if (d[key] !== undefined) el.textContent = d[key];
   });
-  document.querySelectorAll("[data-lang]").forEach((btn) => {
-    const on = btn.getAttribute("data-lang") === lang;
-    btn.classList.toggle("is-active", on);
-    btn.setAttribute("aria-pressed", on ? "true" : "false");
+  document.querySelectorAll("[data-lang-select]").forEach((sel) => {
+    if (sel.value !== lang) sel.value = lang;
+    sel.setAttribute("aria-label", t("lang.label"));
   });
   document.title = d["meta.title"];
   const desc = document.getElementById("meta-desc");
   if (desc) desc.setAttribute("content", d["meta.desc"]);
+  const name = d["name"] || "Agil Azizov";
+  document.querySelectorAll('meta[name="author"], meta[property="og:site_name"]').forEach((m) => {
+    m.setAttribute("content", name);
+  });
+  document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach((m) => {
+    m.setAttribute("content", d["meta.title"]);
+  });
   syncControls();
   try { localStorage.setItem("agil-portfolio-lang", lang); } catch (e) {}
 }
@@ -678,8 +672,8 @@ function initCopy() {
   });
 }
 
-document.querySelectorAll("[data-lang]").forEach((btn) => {
-  btn.addEventListener("click", () => applyLanguage(btn.getAttribute("data-lang")));
+document.querySelectorAll("[data-lang-select]").forEach((sel) => {
+  sel.addEventListener("change", () => applyLanguage(sel.value));
 });
 
 initTheme();
