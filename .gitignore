@@ -1,5 +1,7 @@
 # build output
 dist/
+dist-old/
+dist-trash-*/
 # generated types
 .astro/
 
@@ -8,11 +10,18 @@ _legacy/
 _gen-i18n.mjs
 _fix-css.mjs
 strong-saturn/
+/images/
+/Agil_Azizov_CV.pdf
+/*.JPG
+/*.jpg
 
 # dependencies
 node_modules/
 
-# logs
+# logs / temp
+*.log
+/_*.txt
+/cleanup-out.txt
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
