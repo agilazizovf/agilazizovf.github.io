@@ -1,0 +1,10 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="recycle" title={dict["os.recycle.title"]}>
+  <p style="color:var(--muted);">{dict["os.recycle.body"]}</p>
+</WindowShell>

@@ -1,0 +1,14 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="browser" title={dict["os.browser.title"]}>
+  <p style="color:var(--primary);font-family:var(--display);font-size:28px;margin:0 0 8px;">{dict["os.browser.error"]}</p>
+  <p style="color:var(--muted);">{dict["os.browser.body"]}</p>
+  <p style="margin-top:12px;">
+    <a class="os-btn os-btn-primary" href="#contact" data-open-app="contact">{dict["nav.contact"]}</a>
+  </p>
+</WindowShell>

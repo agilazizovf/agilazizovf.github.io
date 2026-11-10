@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://agilazizovf.github.io/sitemap.xml

@@ -1,0 +1,36 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<div
+  class="boot-layer"
+  data-boot-root
+  data-resume-msg={dict["term.resume"]}
+  role="dialog"
+  aria-modal="true"
+  aria-label="AgilOS boot"
+>
+  <div class="boot-controls">
+    <button type="button" class="os-btn" data-intro-mute data-label-mute={dict["intro.mute"]} data-label-unmute={dict["intro.unmute"]}>
+      {dict["intro.mute"]}
+    </button>
+    <button type="button" class="os-btn" data-intro-skip>{dict["term.skip"]}</button>
+  </div>
+
+  <button type="button" class="power-gate" data-power-gate>
+    <span>{dict["intro.power"]}</span>
+  </button>
+
+  <div data-boot-bios>
+    <div class="boot-output" data-boot-output></div>
+    <div class="visually-hidden" data-boot-live aria-live="polite"></div>
+  </div>
+
+  <div class="splash" data-boot-splash hidden>
+    <div class="splash-logo">AgilOS</div>
+    <p style="color:var(--muted);margin:0;">{dict["os.splash"]}</p>
+    <div class="splash-bar" aria-hidden="true"><span data-splash-bar></span></div>
+  </div>
+</div>

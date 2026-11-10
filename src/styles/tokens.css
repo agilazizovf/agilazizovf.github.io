@@ -1,52 +1,60 @@
-/* Single palette source. Dark defaults; light overrides on html[data-theme="light"]. */
+/*
+  Brand palette from the original static site neutrals
+  (git: f2ab69e / bea3c28 styles.css — --bg #0a0e12 family)
+  plus the site's own terminal blue (.term-key #8fb3ff).
+  No teal / green phosphor.
+*/
 
-@property --bg { syntax: "<color>"; inherits: true; initial-value: #0c1014; }
-@property --surface { syntax: "<color>"; inherits: true; initial-value: #13191f; }
-@property --surface-2 { syntax: "<color>"; inherits: true; initial-value: #1a222a; }
-@property --border { syntax: "<color>"; inherits: true; initial-value: #2a3540; }
-@property --text { syntax: "<color>"; inherits: true; initial-value: #e7eef3; }
-@property --text-dim { syntax: "<color>"; inherits: true; initial-value: #b7c2cb; }
-@property --text-faint { syntax: "<color>"; inherits: true; initial-value: #93a0ab; }
-@property --accent { syntax: "<color>"; inherits: true; initial-value: #3dceb4; }
-@property --accent-ink { syntax: "<color>"; inherits: true; initial-value: #06221c; }
-@property --accent-dim { syntax: "<color>"; inherits: true; initial-value: rgba(61, 206, 180, 0.12); }
-@property --primary { syntax: "<color>"; inherits: true; initial-value: #3dceb4; }
-@property --muted { syntax: "<color>"; inherits: true; initial-value: #b7c2cb; }
+@property --bg { syntax: "<color>"; inherits: true; initial-value: #0a0e12; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: #10161d; }
+@property --surface-2 { syntax: "<color>"; inherits: true; initial-value: #141c24; }
+@property --border { syntax: "<color>"; inherits: true; initial-value: #212b34; }
+@property --text { syntax: "<color>"; inherits: true; initial-value: #eaf0f5; }
+@property --text-dim { syntax: "<color>"; inherits: true; initial-value: #93a1ae; }
+@property --text-faint { syntax: "<color>"; inherits: true; initial-value: #5b6773; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: #8fb3ff; }
+@property --accent-ink { syntax: "<color>"; inherits: true; initial-value: #0a0e12; }
+@property --accent-dim { syntax: "<color>"; inherits: true; initial-value: rgba(143, 179, 255, 0.14); }
+@property --primary { syntax: "<color>"; inherits: true; initial-value: #8fb3ff; }
+@property --muted { syntax: "<color>"; inherits: true; initial-value: #93a1ae; }
 
 :root {
-  --bg: #0c1014;
-  --surface: #13191f;
-  --surface-2: #1a222a;
-  --border: #2a3540;
-  --text: #e7eef3;
-  --text-dim: #b7c2cb;
-  --muted: #b7c2cb;
-  --text-faint: #93a0ab;
-  --accent: #3dceb4;
-  --primary: #3dceb4;
-  --accent-ink: #06221c;
-  --accent-dim: rgba(61, 206, 180, 0.12);
+  --bg: #0a0e12;
+  --surface: #10161d;
+  --surface-2: #141c24;
+  --border: #212b34;
+  --border-soft: #1a232b;
+  --text: #eaf0f5;
+  --text-dim: #93a1ae;
+  --muted: #93a1ae;
+  --text-faint: #5b6773;
+  --accent: #8fb3ff;
+  --primary: #8fb3ff;
+  --accent-ink: #0a0e12;
+  --accent-dim: rgba(143, 179, 255, 0.14);
   --shadow: 0 24px 50px -36px rgba(0, 0, 0, 0.7);
-  --font: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font: "IBM Plex Mono", ui-monospace, monospace;
   --display: "VT323", "IBM Plex Mono", ui-monospace, monospace;
-  --mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
   --ease: cubic-bezier(0.16, 0.84, 0.44, 1);
   color-scheme: dark;
 }
 
+/* Paper terminal — original light neutrals + readable blue */
 html[data-theme="light"] {
-  --bg: #f5f6f7;
+  --bg: #f4f6f8;
   --surface: #ffffff;
   --surface-2: #eef1f4;
-  --border: #d5dde3;
-  --text: #12181d;
-  --text-dim: #3d4a54;
-  --muted: #3d4a54;
-  --text-faint: #5c6b76;
-  --accent: #0c6e5e;
-  --primary: #0c6e5e;
-  --accent-ink: #f3fffb;
-  --accent-dim: rgba(12, 110, 94, 0.1);
+  --border: #dbe1e7;
+  --border-soft: #e6eaee;
+  --text: #10161d;
+  --text-dim: #47525c;
+  --muted: #47525c;
+  --text-faint: #8993a0;
+  --accent: #2f5fbf;
+  --primary: #2f5fbf;
+  --accent-ink: #f4f6f8;
+  --accent-dim: rgba(47, 95, 191, 0.12);
   --shadow: 0 18px 40px -32px rgba(20, 30, 40, 0.35);
   color-scheme: light;
 }
@@ -57,6 +65,7 @@ html.theme-switch {
     --surface 0.45s var(--ease),
     --surface-2 0.45s var(--ease),
     --border 0.45s var(--ease),
+    --border-soft 0.45s var(--ease),
     --text 0.45s var(--ease),
     --text-dim 0.45s var(--ease),
     --muted 0.45s var(--ease),

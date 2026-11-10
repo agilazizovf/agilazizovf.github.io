@@ -1,0 +1,32 @@
+---
+import type { Dict, Locale } from "../../i18n";
+import { pathForLocale } from "../../i18n";
+import PixelIcon from "../Icons/PixelIcon.astro";
+
+interface Props { dict: Dict; locale: Locale; }
+const { dict, locale } = Astro.props;
+const langs: Locale[] = ["en", "az", "ru"];
+---
+<footer class="taskbar" role="contentinfo">
+  <button type="button" class="os-btn start-btn" data-start-btn aria-expanded="false" aria-controls="start-menu">
+    <PixelIcon name="start" />
+    {dict["os.start"]}
+  </button>
+  <div class="task-buttons" data-task-buttons aria-label="Open windows"></div>
+  <div class="tray">
+    {langs.map((l) => (
+      <a
+        href={pathForLocale(l)}
+        class:list={{ "is-active": locale === l }}
+        data-lang-link
+        hreflang={l}
+        lang={l}
+      >{l.toUpperCase()}</a>
+    ))}
+    <button type="button" data-tool-mute data-label-mute={dict["term.mute"]} data-label-unmute={dict["term.unmute"]}>{dict["term.mute"]}</button>
+    <button type="button" data-tool-crt>{dict["term.crt"]}</button>
+    <button type="button" data-tool-fx aria-pressed="true">{dict["term.fx"]}</button>
+    <button type="button" data-tool-theme>{dict["term.theme"]}</button>
+    <span class="tray-clock" data-clock aria-live="polite">00:00</span>
+  </div>
+</footer>

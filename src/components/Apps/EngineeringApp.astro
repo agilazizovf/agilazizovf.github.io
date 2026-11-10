@@ -1,0 +1,53 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="engineering" title={dict["os.eng.title"]}>
+  <div class="tabs" data-tabs="eng">
+    <button type="button" class="is-active" data-tab="flows">{dict["os.tab.flows"]}</button>
+    <button type="button" data-tab="c1">{dict["case.perf.title"]}</button>
+    <button type="button" data-tab="c2">{dict["case.em.title"]}</button>
+    <button type="button" data-tab="c3">{dict["case.qr.title"]}</button>
+  </div>
+  <div data-tab-panel="flows">
+    <h3 style="color:var(--primary);font-size:14px;">{dict["eng.req"]}</h3>
+    <ol class="flow">
+      <li><strong>{dict["flow.client"]}</strong> — {dict["eng.req.1"]}</li>
+      <li><strong>{dict["flow.api"]}</strong> — {dict["eng.req.2"]}</li>
+      <li><strong>{dict["flow.service"]}</strong> — {dict["eng.req.3"]}</li>
+      <li><strong>{dict["flow.data"]}</strong> — {dict["eng.req.4"]}</li>
+    </ol>
+    <h3 style="color:var(--primary);font-size:14px;">{dict["eng.ship"]}</h3>
+    <ol class="flow">
+      <li><strong>Git</strong> — {dict["eng.ship.1"]}</li>
+      <li><strong>CI</strong> — {dict["eng.ship.2"]}</li>
+      <li><strong>{dict["eng.image"]}</strong> — {dict["eng.ship.3"]}</li>
+      <li><strong>{dict["eng.host"]}</strong> — {dict["eng.ship.4"]}</li>
+    </ol>
+  </div>
+  <div data-tab-panel="c1" hidden class="case">
+    <dl>
+      <dt>{dict["label.problem"]}</dt><dd>{dict["case.perf.problem"]}</dd>
+      <dt>{dict["label.approach"]}</dt><dd>{dict["case.perf.approach"]}</dd>
+      <dt>{dict["label.result"]}</dt><dd>{dict["case.perf.result"]}</dd>
+    </dl>
+  </div>
+  <div data-tab-panel="c2" hidden class="case">
+    <dl>
+      <dt>{dict["label.problem"]}</dt><dd>{dict["case.em.problem"]}</dd>
+      <dt>{dict["label.approach"]}</dt><dd>{dict["case.em.approach"]}</dd>
+      <dt>{dict["label.result"]}</dt><dd>{dict["case.em.result"]}</dd>
+    </dl>
+  </div>
+  <div data-tab-panel="c3" hidden class="case">
+    <dl>
+      <dt>{dict["label.problem"]}</dt><dd>{dict["case.qr.problem"]}</dd>
+      <dt>{dict["label.approach"]}</dt><dd>{dict["case.qr.approach"]}</dd>
+      <dt>{dict["label.result"]}</dt><dd>{dict["case.qr.result"]}</dd>
+    </dl>
+  </div>
+  <p style="color:var(--text-faint);font-size:12px;margin-top:10px;">{dict["eng.fine"]}</p>
+</WindowShell>

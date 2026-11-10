@@ -1,0 +1,36 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+
+const programs = [
+  { id: "about", label: dict["os.icon.computer"] },
+  { id: "experience", label: dict["nav.experience"] },
+  { id: "skills", label: dict["nav.skills"] },
+  { id: "projects", label: dict["nav.projects"] },
+  { id: "engineering", label: dict["nav.engineering"] },
+  { id: "contact", label: dict["nav.contact"] },
+  { id: "terminal", label: dict["os.icon.terminal"] },
+] as const;
+---
+<nav id="start-menu" class="start-menu bevel" data-start-menu hidden aria-label="Start menu">
+  <div class="start-rail">AgilOS</div>
+  <ul class="start-list">
+    <li><strong style="display:block;padding:8px 10px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;">{dict["os.menu.programs"]}</strong></li>
+    {programs.map((p) => (
+      <li><button type="button" data-open-app={p.id}>{p.label}</button></li>
+    ))}
+    <li class="start-sep" aria-hidden="true"></li>
+    <li><a href="/Agil_Azizov_CV.pdf" download>{dict["os.menu.documents"]} — CV</a></li>
+    <li class="start-sep" aria-hidden="true"></li>
+    <li><button type="button" data-tool-theme>{dict["os.menu.settings"]} — {dict["term.theme"]}</button></li>
+    <li><button type="button" data-tool-mute>{dict["os.menu.settings"]} — {dict["term.mute"]}</button></li>
+    <li><button type="button" data-tool-crt>{dict["os.menu.settings"]} — {dict["term.crt"]}</button></li>
+    <li><button type="button" data-tool-fx>{dict["os.menu.settings"]} — {dict["term.fx"]}</button></li>
+    <li><button type="button" data-open-app="terminal">{dict["os.icon.terminal"]}</button></li>
+    <li class="start-sep" aria-hidden="true"></li>
+    <li><button type="button" data-os-restart>{dict["os.restart"]}</button></li>
+    <li><button type="button" data-os-shutdown>{dict["os.shutdown"]}</button></li>
+  </ul>
+</nav>

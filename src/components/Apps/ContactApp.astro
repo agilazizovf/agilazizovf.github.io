@@ -1,0 +1,22 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="contact" title={dict["os.contact.title"]}>
+  <p style="color:var(--primary);margin:0 0 8px;">{dict["contact.title"]}</p>
+  <p style="color:var(--muted);margin:0 0 12px;">{dict["contact.lead"]}</p>
+  <ul class="contact-lines">
+    <li><span>email</span><a href="mailto:agilazizovf@gmail.com">agilazizovf@gmail.com</a></li>
+    <li><span>github</span><a href="https://github.com/agilazizovf" target="_blank" rel="noopener noreferrer">github.com/agilazizovf</a></li>
+    <li><span>linkedin</span><a href="https://www.linkedin.com/in/agil-azizov/" target="_blank" rel="noopener noreferrer">linkedin.com/in/agil-azizov</a></li>
+    <li><span>telegram</span><a href="https://t.me/agilazizovf" target="_blank" rel="noopener noreferrer">t.me/agilazizovf</a></li>
+    <li><span>youtube</span><a href="https://www.youtube.com/@agilazizovf" target="_blank" rel="noopener noreferrer">youtube.com/@agilazizovf</a></li>
+  </ul>
+  <p style="margin-top:14px;">
+    <a class="os-btn os-btn-primary" href="/Agil_Azizov_CV.pdf" download>{dict["cta.cv"]}</a>
+    <a class="os-btn" href="mailto:agilazizovf@gmail.com">{dict["os.compose"]}</a>
+  </p>
+</WindowShell>

@@ -1,0 +1,110 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+
+const projects = [
+  {
+    id: "alfred",
+    name: "Alfred",
+    status: dict["kind.active"],
+    desc: dict["proj.al.desc"],
+    rows: [
+      [dict["label.built"], dict["proj.al.built"]],
+      [dict["label.next"], dict["proj.al.planned"]],
+    ],
+  },
+  {
+    id: "otogo",
+    name: "Otogo",
+    status: dict["kind.prod"],
+    desc: dict["proj.otogo.desc"],
+    rows: [
+      [dict["label.problem"], dict["proj.otogo.problem"]],
+      [dict["label.contrib"], dict["proj.otogo.contrib"]],
+      [dict["label.approach"], dict["proj.otogo.approach"]],
+      [dict["label.challenge"], dict["proj.otogo.challenge"]],
+    ],
+    link: { href: "https://otogo.az", label: "otogo.az" },
+  },
+  {
+    id: "az",
+    name: "AzConPrice",
+    status: dict["kind.prod"],
+    desc: dict["proj.az.desc"],
+    rows: [
+      [dict["label.problem"], dict["proj.az.problem"]],
+      [dict["label.contrib"], dict["proj.az.contrib"]],
+      [dict["label.approach"], dict["proj.az.approach"]],
+      [dict["label.challenge"], dict["proj.az.challenge"]],
+    ],
+    link: { href: "https://azconprice.az/en", label: "azconprice.az" },
+  },
+  {
+    id: "era",
+    name: "Eracon",
+    status: dict["kind.prod"],
+    desc: dict["proj.era.desc"],
+    rows: [
+      [dict["label.problem"], dict["proj.era.problem"]],
+      [dict["label.contrib"], dict["proj.era.contrib"]],
+      [dict["label.approach"], dict["proj.era.approach"]],
+      [dict["label.challenge"], dict["proj.era.challenge"]],
+    ],
+    link: { href: "https://era-con.az/", label: "era-con.az" },
+  },
+  {
+    id: "qr",
+    name: "QR AVAN",
+    status: dict["kind.devops"],
+    desc: dict["proj.qr.desc"],
+    rows: [
+      [dict["label.problem"], dict["proj.qr.problem"]],
+      [dict["label.contrib"], dict["proj.qr.contrib"]],
+      [dict["label.approach"], dict["proj.qr.approach"]],
+      [dict["label.challenge"], dict["proj.qr.challenge"]],
+    ],
+    link: { href: "https://qravan.az/", label: "qravan.az" },
+  },
+  {
+    id: "ka",
+    name: "Karier",
+    status: dict["kind.dev"],
+    desc: dict["proj.ka.desc"],
+    rows: [
+      [dict["label.problem"], dict["proj.ka.problem"]],
+      [dict["label.contrib"], dict["proj.ka.contrib"]],
+      [dict["label.approach"], dict["proj.ka.approach"]],
+      [dict["label.challenge"], dict["proj.ka.challenge"]],
+    ],
+    link: { href: "https://karier.az/", label: "karier.az" },
+  },
+];
+---
+<WindowShell id="projects" title={dict["os.proj.title"]}>
+  <div class="project-grid" data-project-grid>
+    {projects.map((p, i) => (
+      <button type="button" class="project-card" data-project={p.id} aria-pressed={i === 0 ? "true" : "false"}>
+        <strong>{p.name}</strong>
+        <div class="tag" style="margin-top:6px;">[{p.status}]</div>
+      </button>
+    ))}
+  </div>
+  <hr style="border:0;border-top:1px solid var(--border);margin:12px 0;" />
+  {projects.map((p, i) => (
+    <article data-project-panel={p.id} hidden={i !== 0}>
+      <h3 style="margin:0 0 6px;">{p.name} <span class="tag">[{p.status}]</span></h3>
+      <p style="color:var(--muted);">{p.desc}</p>
+      {p.rows.map(([k, v]) => (
+        <div class="meta-row"><span>{k}</span><strong>{v}</strong></div>
+      ))}
+      {p.link && (
+        <p style="margin-top:10px;">
+          <a class="os-btn os-btn-primary" href={p.link.href} target="_blank" rel="noopener noreferrer">{dict["link.site"]} — {p.link.label}</a>
+        </p>
+      )}
+    </article>
+  ))}
+</WindowShell>

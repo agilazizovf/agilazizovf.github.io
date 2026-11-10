@@ -1,0 +1,29 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+
+const groups = [
+  { title: dict["sk.lang"], items: ["Java", "Kotlin", "Python", "JavaScript", "C", "C++", "SQL"] },
+  { title: dict["sk.back"], items: ["Spring Boot", "Spring Security", "Hibernate", "REST", "JWT", "OpenAPI"] },
+  { title: dict["sk.db"], items: ["PostgreSQL", "MySQL", "Redis", "Liquibase", dict["sk.query"]] },
+  { title: dict["sk.ops"], items: ["Docker", "Compose", "CI/CD", "Linux", "Nginx", "Git"] },
+  { title: dict["sk.arch"], items: ["OOP", "SOLID", dict["sk.layered"], dict["sk.micro"], dict["sk.contracts"]] },
+  { title: dict["sk.front"], items: ["HTML", "CSS", "JavaScript", "Angular", "Tailwind CSS"] },
+];
+---
+<WindowShell id="skills" title={dict["os.skills.title"]}>
+  <p style="color:var(--muted);margin:0 0 12px;">{dict["skills.lead"]}</p>
+  <div class="skill-grid">
+    {groups.map((g) => (
+      <details class="skill-card" style="display:block;">
+        <summary style="cursor:pointer;color:var(--primary);font-weight:600;">{g.title}</summary>
+        <ul class="list-plain" style="margin-top:8px;">
+          {g.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </details>
+    ))}
+  </div>
+</WindowShell>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+---
+<section
+  class="window"
+  data-window={id}
+  id={`win-${id}`}
+  role="dialog"
+  aria-labelledby={`title-${id}`}
+  hidden
+>
+  <header class="window-title" id={`title-${id}`} tabindex="-1">
+    <span>{title}</span>
+    <div class="window-controls">
+      <button type="button" data-win-min aria-label="Minimize">_</button>
+      <button type="button" data-win-max aria-label="Maximize">□</button>
+      <button type="button" data-win-close aria-label="Close">X</button>
+    </div>
+  </header>
+  <div class="window-body">
+    <slot />
+  </div>
+  <div class="window-resize" data-win-resize aria-hidden="true"></div>
+</section>

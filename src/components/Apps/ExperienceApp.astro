@@ -1,0 +1,105 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+
+const jobs = [
+  {
+    id: "eminler",
+    company: "Əminlər MMC",
+    when: `Sep 2026 — ${dict["exp.present"]}`,
+    role: dict["exp.eminler.role"],
+    sum: dict["exp.eminler.sum"],
+    sys: dict["exp.eminler.sys"],
+    work: [dict["exp.eminler.w1"], dict["exp.eminler.w2"], dict["exp.eminler.w3"]],
+    own: dict["exp.eminler.own"],
+    result: dict["exp.eminler.result"],
+    now: true,
+  },
+  {
+    id: "qravan",
+    company: "QRAVAN LLC",
+    when: "Jan 2026 — Aug 2026",
+    role: dict["exp.qravan.role"],
+    sum: dict["exp.qravan.sum"],
+    sys: dict["exp.qravan.sys"],
+    work: [dict["exp.qravan.w1"], dict["exp.qravan.w2"]],
+    own: dict["exp.qravan.own"],
+    result: dict["exp.qravan.result"],
+  },
+  {
+    id: "otogo",
+    company: "OTOGO LLC",
+    when: "Jun 2025 — Jul 2026",
+    role: dict["exp.otogo.role"],
+    sum: dict["exp.otogo.sum"],
+    sys: dict["exp.otogo.sys"],
+    work: [dict["exp.otogo.w1"], dict["exp.otogo.w2"], dict["exp.otogo.w3"]],
+    own: dict["exp.otogo.own"],
+    result: dict["exp.otogo.result"],
+  },
+  {
+    id: "des",
+    company: "Desinftec LLC",
+    when: "Jul 2025 — Jun 2026",
+    role: dict["exp.des.role"],
+    sum: dict["exp.des.sum"],
+    sys: dict["exp.des.sys"],
+    work: [dict["exp.des.w1"], dict["exp.des.w2"], dict["exp.des.w3"], dict["exp.des.w4"]],
+    own: dict["exp.des.own"],
+    result: dict["exp.des.result"],
+  },
+  {
+    id: "dev",
+    company: "Developia Engineering Academy",
+    when: "Aug 2024 — May 2026",
+    role: dict["exp.dev.role"],
+    sum: dict["exp.dev.sum"],
+    sys: dict["exp.dev.sys"],
+    work: [dict["exp.dev.w1"], dict["exp.dev.w2"], dict["exp.dev.w3"]],
+    own: dict["exp.dev.own"],
+    result: dict["exp.dev.result"],
+  },
+  {
+    id: "men",
+    company: "Design & Information Technologies Club",
+    when: "Oct 2023 — Jul 2024",
+    role: dict["exp.men.role"],
+    sum: dict["exp.men.sum"],
+    work: [dict["exp.men.w1"], dict["exp.men.w2"]],
+    result: dict["exp.men.result"],
+  },
+];
+---
+<WindowShell id="experience" title={dict["os.exp.title"]}>
+  <div class="explorer" data-explorer>
+    <ul class="explorer-list" role="listbox" aria-label={dict["nav.experience"]}>
+      {jobs.map((j, i) => (
+        <li>
+          <button type="button" class:list={{ "is-active": i === 0 }} data-job={j.id} role="option" aria-selected={i === 0 ? "true" : "false"}>
+            {j.now && <span class="tag">[NOW]</span>}{" "}
+            {j.company}
+            <div style="color:inherit;opacity:.8;font-size:11px;">{j.when}</div>
+          </button>
+        </li>
+      ))}
+    </ul>
+    <div class="explorer-detail">
+      {jobs.map((j, i) => (
+        <div data-job-panel={j.id} hidden={i !== 0}>
+          <h3 style="margin:0 0 6px;font-size:16px;">{j.role}</h3>
+          <p style="color:var(--muted);margin:0 0 10px;">{j.sum}</p>
+          {j.sys && (<><h4 style="color:var(--primary);font-size:12px;text-transform:uppercase;">{dict["label.systems"]}</h4><p style="color:var(--muted);">{j.sys}</p></>)}
+          <h4 style="color:var(--primary);font-size:12px;text-transform:uppercase;">{dict["label.work"]}</h4>
+          <ul style="padding-left:18px;color:var(--muted);">{j.work.map((w) => <li>{w}</li>)}</ul>
+          {j.own && (<><h4 style="color:var(--primary);font-size:12px;text-transform:uppercase;">{dict["label.own"]}</h4><p style="color:var(--muted);">{j.own}</p></>)}
+          <h4 style="color:var(--primary);font-size:12px;text-transform:uppercase;">{dict["label.result"]}</h4>
+          <p style="color:var(--muted);">{j.result}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="explorer-status">{jobs.length} objects</div>
+</WindowShell>

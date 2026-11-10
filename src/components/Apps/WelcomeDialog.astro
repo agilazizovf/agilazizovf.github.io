@@ -1,0 +1,25 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="welcome" title={dict["os.welcome.title"]}>
+  <p style="font-family:var(--display);font-size:32px;color:var(--primary);margin:0 0 8px;line-height:1;">
+    {dict["os.welcome.hello"]}
+  </p>
+  <p style="color:var(--muted);margin:0 0 14px;">
+    {dict.name} — {dict["hero.title"]}
+  </p>
+  <p style="color:var(--text);margin:0 0 16px;">{dict["hero.lede"]}</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+    <button type="button" class="os-btn os-btn-primary" data-open-app="experience">{dict["hero.cta"]}</button>
+    <a class="os-btn" href="/Agil_Azizov_CV.pdf" download>{dict["cta.cv"]}</a>
+    <button type="button" class="os-btn" data-win-close-welcome>{dict["os.close"]}</button>
+  </div>
+  <label style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;">
+    <input type="checkbox" data-welcome-startup checked />
+    {dict["os.welcome.show"]}
+  </label>
+</WindowShell>

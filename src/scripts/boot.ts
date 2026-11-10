@@ -1,11 +1,8 @@
 import * as audio from "./retroAudio";
 
-const SESSION_KEY = "agil-portfolio-intro-done";
+const SESSION_KEY = "agilos-intro-done";
 
-export type BootApi = {
-  skip: () => void;
-  replay: () => void;
-};
+export type BootApi = { skip: () => void; replay: () => void };
 
 function sleep(ms: number, signal: AbortSignal) {
   return new Promise<void>((resolve, reject) => {
@@ -50,17 +47,15 @@ export function clearIntroDone() {
   }
 }
 
-export function initBoot(
-  root: HTMLElement,
-  onDone: () => void,
-): BootApi {
+export function initBoot(root: HTMLElement, onDone: () => void): BootApi {
   const output = root.querySelector<HTMLElement>("[data-boot-output]")!;
   const live = root.querySelector<HTMLElement>("[data-boot-live]")!;
   const powerGate = root.querySelector<HTMLElement>("[data-power-gate]")!;
-  const welcomeBlock = root.querySelector<HTMLElement>("[data-boot-welcome]")!;
-  const continueBtn = root.querySelector<HTMLButtonElement>("[data-intro-continue]")!;
+  const splash = root.querySelector<HTMLElement>("[data-boot-splash]")!;
+  const splashBar = root.querySelector<HTMLElement>("[data-splash-bar]")!;
   const skipBtn = root.querySelector<HTMLButtonElement>("[data-intro-skip]")!;
   const muteBtn = root.querySelector<HTMLButtonElement>("[data-intro-mute]")!;
+  const resumeMsg = root.dataset.resumeMsg || "resuming session...";
 
   let controller: AbortController | null = null;
   let finished = false;
@@ -87,16 +82,14 @@ export function initBoot(
     finished = true;
     controller?.abort();
     audio.stopHum();
-    audio.play("crtOff");
     markIntroDone();
     root.classList.add("is-done");
     root.setAttribute("aria-hidden", "true");
     root.inert = true;
     onDone();
-    window.setTimeout(() => audio.stopHum(), 300);
   }
 
-  async function typeLine(text: string, signal: AbortSignal, delay = 18) {
+  async function typeLine(text: string, signal: AbortSignal, delay = 5) {
     const line = document.createElement("div");
     line.className = "boot-line";
     output.appendChild(line);
@@ -108,19 +101,17 @@ export function initBoot(
     for (const ch of text) {
       if (signal.aborted) throw new DOMException("aborted", "AbortError");
       line.textContent += ch;
-      if (ch !== " ") audio.play("click");
       await sleep(delay, signal);
     }
     announce(text);
-    output.scrollTop = output.scrollHeight;
   }
 
-  async function run(signal: AbortSignal) {
+  async function runFull(signal: AbortSignal) {
     root.classList.remove("is-done");
     root.removeAttribute("aria-hidden");
     root.inert = false;
     powerGate.hidden = true;
-    welcomeBlock.hidden = true;
+    splash.hidden = true;
     output.innerHTML = "";
     audio.init();
     audio.play("thunk");
@@ -134,52 +125,39 @@ export function initBoot(
     while (mem <= 640) {
       memLine.textContent = `Memory Test: ${mem}K OK`;
       audio.play("tick");
-      mem += reduce ? 192 : 64;
-      await sleep(reduce ? 15 : 55, signal);
+      mem += reduce ? 288 : 128;
+      await sleep(reduce ? 8 : 20, signal);
     }
     audio.play("beep");
-    await typeLine("Keyboard ........................ OK", signal, 10);
-    await typeLine("Detecting drives ................ OK", signal, 10);
-    await typeLine("Loading JAVA .................... OK", signal, 10);
-    await typeLine("Loading SPRING BOOT ............. OK", signal, 10);
-    await typeLine("Mounting DOCKER ................. OK", signal, 10);
-    await typeLine("Starting CI/CD .................. OK", signal, 10);
+    await typeLine("Detecting drives ................ [ OK ]", signal);
+    await typeLine("Loading JAVA .................... [ OK ]", signal);
+    await typeLine("Loading SPRING BOOT ............. [ OK ]", signal);
+    await typeLine("Mounting DOCKER ................. [ OK ]", signal);
+    await typeLine("Starting CI/CD .................. [ OK ]", signal);
 
-    const bar = document.createElement("div");
-    bar.className = "boot-line";
-    output.appendChild(bar);
-    const blocks = reduce ? 8 : 16;
-    for (let i = 1; i <= blocks; i++) {
-      audio.play("floppy");
-      bar.textContent = `LOADING ${"█".repeat(i)}${"░".repeat(blocks - i)} ${Math.round((i / blocks) * 100)}%`;
-      await sleep(reduce ? 30 : 90, signal);
+    splash.hidden = false;
+    audio.play("startup");
+    for (let i = 0; i <= 100; i += reduce ? 20 : 8) {
+      splashBar.style.width = `${i}%`;
+      await sleep(reduce ? 20 : 35, signal);
     }
+    await sleep(reduce ? 100 : 250, signal);
+    finish();
+  }
 
-    welcomeBlock.hidden = false;
-    audio.play("chime");
-    announce(welcomeBlock.querySelector(".boot-welcome")?.textContent || "WELCOME");
-    continueBtn.focus();
-
-    await new Promise<void>((resolve, reject) => {
-      const onKey = (e: KeyboardEvent) => {
-        if (e.key === "Enter") done();
-      };
-      const done = () => {
-        window.removeEventListener("keydown", onKey);
-        continueBtn.removeEventListener("click", done);
-        signal.removeEventListener("abort", onAbort);
-        resolve();
-      };
-      const onAbort = () => {
-        window.removeEventListener("keydown", onKey);
-        continueBtn.removeEventListener("click", done);
-        reject(new DOMException("aborted", "AbortError"));
-      };
-      window.addEventListener("keydown", onKey);
-      continueBtn.addEventListener("click", done);
-      signal.addEventListener("abort", onAbort, { once: true });
-    });
-
+  async function runQuick() {
+    root.classList.remove("is-done");
+    root.removeAttribute("aria-hidden");
+    root.inert = false;
+    powerGate.hidden = true;
+    output.innerHTML = "";
+    splash.hidden = false;
+    const line = document.createElement("div");
+    line.className = "boot-line";
+    line.textContent = resumeMsg;
+    output.appendChild(line);
+    splashBar.style.width = "100%";
+    await sleep(1000, new AbortController().signal).catch(() => undefined);
     finish();
   }
 
@@ -189,15 +167,16 @@ export function initBoot(
     root.removeAttribute("aria-hidden");
     root.inert = false;
     powerGate.hidden = false;
-    welcomeBlock.hidden = true;
+    splash.hidden = true;
     output.innerHTML = "";
+    splashBar.style.width = "0%";
 
     const go = () => {
       window.removeEventListener("keydown", onKey);
       powerGate.removeEventListener("click", go);
       controller?.abort();
       controller = new AbortController();
-      run(controller.signal).catch((err) => {
+      runFull(controller.signal).catch((err) => {
         if (err?.name !== "AbortError") console.error(err);
       });
     };
@@ -233,12 +212,7 @@ export function initBoot(
   });
 
   if (shouldAutoplayIntro()) armPower();
-  else {
-    root.classList.add("is-done");
-    root.setAttribute("aria-hidden", "true");
-    root.inert = true;
-    onDone();
-  }
+  else void runQuick();
 
   return { skip, replay };
 }

@@ -1,0 +1,14 @@
+---
+import type { Dict } from "../../i18n";
+import WindowShell from "../Window/WindowShell.astro";
+
+interface Props { dict: Dict; }
+const { dict } = Astro.props;
+---
+<WindowShell id="terminal" title={dict["os.term.title"]}>
+  <div class="term-out" data-term-out aria-live="polite">{dict["os.term.ready"]}</div>
+  <form class="term-form" data-term-form autocomplete="off">
+    <label for="agilos-cmd">{dict["term.prompt"]}</label>
+    <input id="agilos-cmd" name="cmd" type="text" spellcheck="false" autocomplete="off" />
+  </form>
+</WindowShell>

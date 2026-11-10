@@ -8,11 +8,17 @@ type SoundName =
   | "floppy"
   | "click"
   | "chime"
+  | "startup"
+  | "winOpen"
+  | "winClose"
+  | "minimize"
+  | "error"
+  | "shutdown"
   | "crtOn"
   | "crtOff";
 
 const MUTE_KEY = "agil-portfolio-mute";
-const MASTER = 0.25;
+const MASTER = 0.2;
 
 let ctx: AudioContext | null = null;
 let master: GainNode | null = null;
@@ -169,14 +175,75 @@ export function play(name: SoundName) {
       osc.stop(context.currentTime + 0.03);
       break;
     }
-    case "chime": {
-      [523.25, 659.25, 783.99].forEach((freq, i) => {
+    case "chime":
+    case "startup": {
+      // Original AgilOS motif (not the Windows chord)
+      [392, 494, 587, 740].forEach((freq, i) => {
+        const osc = context.createOscillator();
+        const g = envGain(context, out, 0.09, 0.01, 0.4);
+        osc.type = "triangle";
+        osc.frequency.value = freq;
+        osc.connect(g);
+        const t = context.currentTime + i * 0.11;
+        osc.start(t);
+        osc.stop(t + 0.45);
+      });
+      break;
+    }
+    case "winOpen": {
+      const osc = context.createOscillator();
+      const g = envGain(context, out, 0.1, 0.005, 0.12);
+      osc.type = "square";
+      osc.frequency.value = 520;
+      osc.frequency.exponentialRampToValueAtTime(880, context.currentTime + 0.1);
+      osc.connect(g);
+      osc.start();
+      osc.stop(context.currentTime + 0.12);
+      break;
+    }
+    case "winClose": {
+      const osc = context.createOscillator();
+      const g = envGain(context, out, 0.1, 0.005, 0.12);
+      osc.type = "square";
+      osc.frequency.value = 880;
+      osc.frequency.exponentialRampToValueAtTime(420, context.currentTime + 0.1);
+      osc.connect(g);
+      osc.start();
+      osc.stop(context.currentTime + 0.12);
+      break;
+    }
+    case "minimize": {
+      const osc = context.createOscillator();
+      const g = envGain(context, out, 0.08, 0.002, 0.08);
+      osc.type = "triangle";
+      osc.frequency.value = 700;
+      osc.frequency.exponentialRampToValueAtTime(220, context.currentTime + 0.08);
+      osc.connect(g);
+      osc.start();
+      osc.stop(context.currentTime + 0.09);
+      break;
+    }
+    case "error": {
+      [220, 180].forEach((freq, i) => {
+        const osc = context.createOscillator();
+        const g = envGain(context, out, 0.14, 0.005, 0.18);
+        osc.type = "square";
+        osc.frequency.value = freq;
+        osc.connect(g);
+        const t = context.currentTime + i * 0.12;
+        osc.start(t);
+        osc.stop(t + 0.2);
+      });
+      break;
+    }
+    case "shutdown": {
+      [523, 392, 261].forEach((freq, i) => {
         const osc = context.createOscillator();
         const g = envGain(context, out, 0.1, 0.01, 0.35);
         osc.type = "sine";
         osc.frequency.value = freq;
         osc.connect(g);
-        const t = context.currentTime + i * 0.08;
+        const t = context.currentTime + i * 0.16;
         osc.start(t);
         osc.stop(t + 0.4);
       });

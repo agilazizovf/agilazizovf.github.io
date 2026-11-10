@@ -1,0 +1,100 @@
+---
+import type { Dict, Locale } from "../../i18n";
+import PixelIcon from "../Icons/PixelIcon.astro";
+import Taskbar from "./Taskbar.astro";
+import StartMenu from "./StartMenu.astro";
+import WelcomeDialog from "../Apps/WelcomeDialog.astro";
+import AboutApp from "../Apps/AboutApp.astro";
+import ExperienceApp from "../Apps/ExperienceApp.astro";
+import SkillsApp from "../Apps/SkillsApp.astro";
+import ProjectsApp from "../Apps/ProjectsApp.astro";
+import EngineeringApp from "../Apps/EngineeringApp.astro";
+import ContactApp from "../Apps/ContactApp.astro";
+import TerminalApp from "../Apps/TerminalApp.astro";
+import RecycleBinApp from "../Apps/RecycleBinApp.astro";
+import FakeBrowserApp from "../Apps/FakeBrowserApp.astro";
+import Boot from "../Boot/Boot.astro";
+import CrtOverlay from "./CrtOverlay.astro";
+
+interface Props { dict: Dict; locale: Locale; }
+const { dict, locale } = Astro.props;
+
+const icons = [
+  { id: "about", icon: "computer" as const, label: dict["os.icon.computer"] },
+  { id: "experience", icon: "folder" as const, label: dict["nav.experience"] },
+  { id: "skills", icon: "skills" as const, label: dict["nav.skills"] },
+  { id: "projects", icon: "projects" as const, label: dict["nav.projects"] },
+  { id: "engineering", icon: "engineering" as const, label: dict["nav.engineering"] },
+  { id: "contact", icon: "mail" as const, label: dict["nav.contact"] },
+  { id: "terminal", icon: "terminal" as const, label: dict["os.icon.terminal"] },
+  { id: "cv", icon: "resume" as const, label: "Resume.pdf" },
+  { id: "recycle", icon: "recycle" as const, label: dict["os.icon.recycle"] },
+  { id: "browser", icon: "browser" as const, label: dict["os.icon.browser"] },
+];
+---
+<div class="os-root" data-os-root>
+  <div class="desktop" data-desktop>
+    <canvas class="desktop-bg" data-desktop-bg aria-hidden="true"></canvas>
+    <div class="desktop-icons" role="list" aria-label="Desktop">
+      {icons.map((item) => (
+        item.id === "cv" ? (
+          <a class="desk-icon" role="listitem" href="/Agil_Azizov_CV.pdf" download data-desk-icon="cv" title={item.label}>
+            <PixelIcon name={item.icon} />
+            <span title={item.label}>{item.label}</span>
+          </a>
+        ) : (
+          <button type="button" class="desk-icon" role="listitem" data-desk-icon={item.id} title={item.label}>
+            <PixelIcon name={item.icon} />
+            <span title={item.label}>{item.label}</span>
+          </button>
+        )
+      ))}
+    </div>
+
+    <WelcomeDialog dict={dict} />
+    <AboutApp dict={dict} />
+    <ExperienceApp dict={dict} />
+    <SkillsApp dict={dict} />
+    <ProjectsApp dict={dict} />
+    <EngineeringApp dict={dict} />
+    <ContactApp dict={dict} />
+    <TerminalApp dict={dict} />
+    <RecycleBinApp dict={dict} />
+    <FakeBrowserApp dict={dict} />
+
+    <div class="ctx-menu bevel" data-ctx-menu hidden>
+      <button type="button" data-ctx="refresh">{dict["os.ctx.refresh"]}</button>
+      <button type="button" data-ctx="theme">{dict["os.ctx.theme"]}</button>
+      <button type="button" data-ctx="about">{dict["os.ctx.about"]}</button>
+    </div>
+  </div>
+
+  <StartMenu dict={dict} />
+  <Taskbar dict={dict} locale={locale} />
+  <Boot dict={dict} />
+
+  <div class="shutdown-screen" data-shutdown hidden>
+    <p style="font-family:var(--display);font-size:clamp(28px,6vw,48px);margin:0;">{dict["os.safe"]}</p>
+    <button type="button" class="os-btn os-btn-primary" data-power-again>{dict["intro.power"]}</button>
+  </div>
+
+  {/* SEO / no-JS fallback */}
+  <main class="visually-hidden" id="seo-main">
+    <h1>{dict.name} — {dict["hero.title"]}</h1>
+    <p>{dict["meta.desc"]}</p>
+    <section id="about"><h2>{dict["nav.about"]}</h2><p>{dict["about.p1"]}</p></section>
+    <section id="experience"><h2>{dict["nav.experience"]}</h2><p>{dict["exp.lead"]}</p></section>
+    <section id="skills"><h2>{dict["nav.skills"]}</h2><p>{dict["skills.lead"]}</p></section>
+    <section id="projects"><h2>{dict["nav.projects"]}</h2><p>{dict["proj.lead"]}</p></section>
+    <section id="engineering"><h2>{dict["nav.engineering"]}</h2><p>{dict["eng.lead"]}</p></section>
+    <section id="contact"><h2>{dict["nav.contact"]}</h2><p>{dict["contact.lead"]}</p><a href="mailto:agilazizovf@gmail.com">agilazizovf@gmail.com</a></section>
+  </main>
+  <noscript>
+    <div style="padding:24px;max-width:70ch;margin:0 auto;font-family:monospace;">
+      <h1>{dict.name}</h1>
+      <p>{dict["hero.lede"]}</p>
+      <p><a href="/Agil_Azizov_CV.pdf">{dict["cta.cv"]}</a> · <a href="mailto:agilazizovf@gmail.com">Email</a></p>
+    </div>
+  </noscript>
+</div>
+<CrtOverlay />
