@@ -1,0 +1,25 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+---
+<div class="command-line" data-command-line>
+  <div class="command-log" data-command-log aria-live="polite"></div>
+  <form class="command-form" data-command-form autocomplete="off">
+    <label for="term-cmd">{dict["term.prompt"]}</label>
+    <input
+      id="term-cmd"
+      name="cmd"
+      type="text"
+      spellcheck="false"
+      autocapitalize="off"
+      autocomplete="off"
+      aria-label="Command"
+      placeholder="help"
+    />
+  </form>
+  <p class="command-hint">{dict["cmd.hint"]}</p>
+</div>

@@ -1,0 +1,172 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+
+type Project = {
+  name: string;
+  sub: string;
+  status: string;
+  statusKey: "prod" | "dev" | "active" | "devops";
+  desc: string;
+  rows: { label: string; text: string }[];
+  concepts: string;
+  tags?: string[];
+  link?: { href: string; label: string };
+};
+
+const projects: Project[] = [
+  {
+    name: "Alfred",
+    sub: dict["proj.al.sub"],
+    status: dict["term.status.active"],
+    statusKey: "active",
+    desc: dict["proj.al.desc"],
+    rows: [
+      { label: dict["label.built"], text: dict["proj.al.built"] },
+      { label: dict["label.next"], text: dict["proj.al.planned"] },
+      { label: dict["proj.al.stack"], text: "Python · Telegram · SSH · Docker · MySQL" },
+    ],
+    concepts: dict["proj.al.note"],
+  },
+  {
+    name: "Otogo",
+    sub: dict["proj.otogo.sub"],
+    status: dict["term.status.prod"],
+    statusKey: "prod",
+    desc: dict["proj.otogo.desc"],
+    rows: [
+      { label: dict["label.problem"], text: dict["proj.otogo.problem"] },
+      { label: dict["label.contrib"], text: dict["proj.otogo.contrib"] },
+      { label: dict["label.approach"], text: dict["proj.otogo.approach"] },
+      { label: dict["label.challenge"], text: dict["proj.otogo.challenge"] },
+      { label: dict["label.concepts"], text: dict["proj.otogo.concepts"] },
+    ],
+    concepts: dict["proj.otogo.concepts"],
+    link: { href: "https://otogo.az", label: "otogo.az" },
+  },
+  {
+    name: "AzConPrice",
+    sub: dict["proj.az.sub"],
+    status: dict["term.status.prod"],
+    statusKey: "prod",
+    desc: dict["proj.az.desc"],
+    rows: [
+      { label: dict["label.problem"], text: dict["proj.az.problem"] },
+      { label: dict["label.contrib"], text: dict["proj.az.contrib"] },
+      { label: dict["label.approach"], text: dict["proj.az.approach"] },
+      { label: dict["label.challenge"], text: dict["proj.az.challenge"] },
+      { label: dict["label.concepts"], text: dict["proj.az.concepts"] },
+    ],
+    concepts: dict["proj.az.concepts"],
+    tags: [dict["tag.sepdec"]],
+    link: { href: "https://azconprice.az/en", label: "azconprice.az" },
+  },
+  {
+    name: "Eracon",
+    sub: dict["proj.era.sub"],
+    status: dict["term.status.prod"],
+    statusKey: "prod",
+    desc: dict["proj.era.desc"],
+    rows: [
+      { label: dict["label.problem"], text: dict["proj.era.problem"] },
+      { label: dict["label.contrib"], text: dict["proj.era.contrib"] },
+      { label: dict["label.approach"], text: dict["proj.era.approach"] },
+      { label: dict["label.challenge"], text: dict["proj.era.challenge"] },
+      { label: dict["label.concepts"], text: dict["proj.era.concepts"] },
+    ],
+    concepts: dict["proj.era.concepts"],
+    tags: [dict["tag.jul25"]],
+    link: { href: "https://era-con.az/", label: "era-con.az" },
+  },
+  {
+    name: "QR AVAN",
+    sub: dict["proj.qr.sub"],
+    status: dict["kind.devops"],
+    statusKey: "devops",
+    desc: dict["proj.qr.desc"],
+    rows: [
+      { label: dict["label.problem"], text: dict["proj.qr.problem"] },
+      { label: dict["label.contrib"], text: dict["proj.qr.contrib"] },
+      { label: dict["label.approach"], text: dict["proj.qr.approach"] },
+      { label: dict["label.challenge"], text: dict["proj.qr.challenge"] },
+      { label: dict["label.concepts"], text: dict["proj.qr.concepts"] },
+    ],
+    concepts: dict["proj.qr.concepts"],
+    tags: [dict["tag.qrwhen"]],
+    link: { href: "https://qravan.az/", label: "qravan.az" },
+  },
+  {
+    name: "Karier",
+    sub: dict["proj.ka.sub"],
+    status: dict["term.status.dev"],
+    statusKey: "dev",
+    desc: dict["proj.ka.desc"],
+    rows: [
+      { label: dict["label.problem"], text: dict["proj.ka.problem"] },
+      { label: dict["label.contrib"], text: dict["proj.ka.contrib"] },
+      { label: dict["label.approach"], text: dict["proj.ka.approach"] },
+      { label: dict["label.challenge"], text: dict["proj.ka.challenge"] },
+      { label: dict["label.concepts"], text: dict["proj.ka.concepts"] },
+    ],
+    concepts: dict["proj.ka.concepts"],
+    link: { href: "https://karier.az/", label: "karier.az" },
+  },
+];
+---
+<section
+  id="projects"
+  class="term-section"
+  data-section="projects"
+  hidden
+  aria-hidden="true"
+  aria-labelledby="projects-title"
+>
+  <div class="panel">
+    <h2 id="projects-title" class="panel-title" tabindex="-1">
+      <span>┌─ {dict["nav.projects"]} </span><span class="rule" aria-hidden="true"></span><span aria-hidden="true">┐</span>
+    </h2>
+    <div class="panel-body">
+      <p style="color:var(--primary);margin-bottom:6px;">{dict["proj.title"]}</p>
+      <p class="lede" style="margin-bottom:14px;">{dict["proj.lead"]}</p>
+      <div class="project-grid">
+        {projects.map((p) => (
+          <article class="project-box">
+            <header>
+              <h3>{p.name}</h3>
+              <span class="tag ok">[{p.status}]</span>
+              <p class="sub">{p.sub}</p>
+            </header>
+            <p>{p.desc}</p>
+            {p.rows.map((r) => (
+              <div class="meta-row">
+                <span>{r.label}</span>
+                <strong>{r.text}</strong>
+              </div>
+            ))}
+            {p.tags && (
+              <p style="margin-top:8px;">
+                {p.tags.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+              </p>
+            )}
+            {p.link && (
+              <a class="cmd-link" href={p.link.href} rel="noopener noreferrer" target="_blank">
+                {dict["term.open"]} {p.link.label}
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:14px;">
+        <a class="cmd-link" href="https://github.com/agilazizovf" rel="noopener noreferrer" target="_blank">
+          {dict["proj.more"]}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

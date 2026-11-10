@@ -1,0 +1,99 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+
+const groups = [
+  {
+    title: dict["sk.lang"],
+    desc: dict["sk.lang.d"],
+    items: ["Java", "Kotlin", "Python", "JavaScript", "C", "C++", "SQL"],
+  },
+  {
+    title: dict["sk.front"],
+    desc: dict["sk.front.d"],
+    items: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "Angular", "Bootstrap"],
+  },
+  {
+    title: dict["sk.back"],
+    desc: dict["sk.back.d"],
+    items: [
+      "Spring Boot",
+      "Spring MVC",
+      "Spring Security",
+      "Spring Data JPA",
+      "Hibernate",
+      "Spring Validation",
+      "REST APIs",
+      "OpenAPI",
+      "JWT",
+    ],
+  },
+  {
+    title: dict["sk.arch"],
+    desc: dict["sk.arch.d"],
+    items: ["OOP", "SOLID", dict["sk.patterns"], dict["sk.layered"], dict["sk.micro"], dict["sk.contracts"]],
+  },
+  {
+    title: dict["sk.db"],
+    desc: dict["sk.db.d"],
+    items: ["PostgreSQL", "MySQL", "Redis", "H2", "Liquibase", dict["sk.schema"], dict["sk.query"]],
+  },
+  {
+    title: dict["sk.msg"],
+    desc: dict["sk.msg.d"],
+    items: ["Kafka", "RabbitMQ"],
+  },
+  {
+    title: dict["sk.ops"],
+    desc: dict["sk.ops.d"],
+    items: ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "CI/CD", "Nginx", "Linux", "Git", "Maven", "Gradle"],
+  },
+  {
+    title: dict["sk.test"],
+    desc: dict["sk.test.d"],
+    items: ["JUnit 5", "Mockito", "Postman", dict["sk.proddebug"]],
+  },
+  {
+    title: dict["sk.human"],
+    desc: dict["sk.human.d"],
+    items: [
+      `${dict["lang.az"]} — ${dict["lang.native"]}`,
+      `${dict["lang.en"]} — ${dict["lang.ui"]}`,
+      `${dict["lang.ru"]} — ${dict["lang.ui"]}`,
+    ],
+  },
+];
+---
+<section
+  id="skills"
+  class="term-section"
+  data-section="skills"
+  hidden
+  aria-hidden="true"
+  aria-labelledby="skills-title"
+>
+  <div class="panel">
+    <h2 id="skills-title" class="panel-title" tabindex="-1">
+      <span>┌─ {dict["nav.skills"]} </span><span class="rule" aria-hidden="true"></span><span aria-hidden="true">┐</span>
+    </h2>
+    <div class="panel-body">
+      <p style="color:var(--primary);margin-bottom:6px;">{dict["skills.title"]}</p>
+      <p class="lede" style="margin-bottom:14px;">{dict["skills.lead"]}</p>
+      <div class="skill-grid">
+        {groups.map((g) => (
+          <article class="skill-box">
+            <h3>{g.title}</h3>
+            <p>{g.desc}</p>
+            <ul>
+              {g.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

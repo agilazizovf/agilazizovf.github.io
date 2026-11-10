@@ -1,0 +1,56 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+
+const links = [
+  { key: "email", label: "email", href: "mailto:agilazizovf@gmail.com", text: "agilazizovf@gmail.com" },
+  { key: "github", label: "github", href: "https://github.com/agilazizovf", text: "github.com/agilazizovf" },
+  { key: "linkedin", label: "linkedin", href: "https://www.linkedin.com/in/agil-azizov/", text: "linkedin.com/in/agil-azizov" },
+  { key: "telegram", label: "telegram", href: "https://t.me/agilazizovf", text: "t.me/agilazizovf" },
+  { key: "youtube", label: "youtube", href: "https://www.youtube.com/@agilazizovf", text: "youtube.com/@agilazizovf" },
+];
+---
+<section
+  id="contact"
+  class="term-section"
+  data-section="contact"
+  hidden
+  aria-hidden="true"
+  aria-labelledby="contact-title"
+>
+  <div class="panel">
+    <h2 id="contact-title" class="panel-title" tabindex="-1">
+      <span>┌─ {dict["nav.contact"]} </span><span class="rule" aria-hidden="true"></span><span aria-hidden="true">┐</span>
+    </h2>
+    <div class="panel-body">
+      <p style="color:var(--primary);margin-bottom:6px;">{dict["contact.title"]}</p>
+      <p class="lede">{dict["contact.lead"]}</p>
+      <ul class="contact-lines">
+        {links.map((l) => (
+          <li>
+            <span>{l.label}</span>
+            <a href={l.href} rel="noopener noreferrer" target={l.href.startsWith("mailto:") ? undefined : "_blank"}>
+              {l.text}
+            </a>
+          </li>
+        ))}
+        <li>
+          <span>cv</span>
+          <a class="cv-link" href="/Agil_Azizov_CV.pdf" download>
+            {dict["term.download"]}
+          </a>
+        </li>
+      </ul>
+      <hr class="divider" />
+      <p class="command-hint">
+        <button type="button" data-replay-boot style="font:inherit;color:var(--accent);background:transparent;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">
+          {dict["footer.replay"]}
+        </button>
+      </p>
+    </div>
+  </div>
+</section>

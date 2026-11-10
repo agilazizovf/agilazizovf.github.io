@@ -1,0 +1,31 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+---
+<div class="boot-layer" data-boot-root role="dialog" aria-modal="true" aria-label="Boot sequence">
+  <div class="boot-controls">
+    <button type="button" data-intro-mute data-label-mute={dict["intro.mute"]} data-label-unmute={dict["intro.unmute"]}>
+      {dict["intro.mute"]}
+    </button>
+    <button type="button" data-intro-skip>{dict["term.skip"]}</button>
+  </div>
+
+  <button type="button" class="power-gate" data-power-gate>
+    <span>{dict["intro.power"]}</span>
+  </button>
+
+  <div class="boot-output" data-boot-output aria-hidden="true"></div>
+  <div class="visually-hidden" data-boot-live aria-live="polite"></div>
+
+  <div data-boot-welcome hidden>
+    <p class="boot-welcome">{dict["intro.welcome"]}</p>
+    <p class="boot-tag">{dict["intro.tagline"]}</p>
+    <button type="button" class="boot-continue" data-intro-continue>
+      {dict["intro.continue"]}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+---
+import Terminal from "../components/Terminal/Terminal.astro";
+import { getDict, type Locale } from "../i18n";
+import "../styles/terminal.css";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const canonical =
+  locale === "en"
+    ? "https://agilazizovf.github.io/"
+    : `https://agilazizovf.github.io/${locale}/`;
+const ogLocale = locale === "az" ? "az_AZ" : locale === "ru" ? "ru_RU" : "en_US";
+---
+<!DOCTYPE html>
+<html lang={locale} data-theme="dark" data-crt="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{dict["meta.title"]}</title>
+    <meta name="description" content={dict["meta.desc"]} />
+    <meta name="author" content={dict.name} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0c1014" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f6f7" media="(prefers-color-scheme: light)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content={dict.name} />
+    <meta property="og:title" content={dict["meta.title"]} />
+    <meta property="og:description" content={dict["meta.desc"]} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={dict["meta.title"]} />
+    <meta name="twitter:description" content={dict["meta.desc"]} />
+    <link
+      rel="icon"
+      href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%230c1014%22/><text x=%2216%22 y=%2222%22 font-size=%2214%22 text-anchor=%22middle%22 fill=%22%233dceb4%22 font-family=%22ui-monospace,monospace%22 font-weight=%22700%22>AA</text></svg>`}
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Agil Azizov",
+      "jobTitle": "Software Engineer",
+      "description": "Backend-focused software engineer working on production APIs, data access, and deployment.",
+      "url": "https://agilazizovf.github.io/",
+      "email": "mailto:agilazizovf@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Baku", "addressCountry": "AZ" },
+      "worksFor": { "@type": "Organization", "name": "Əminlər MMC" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Khazar University" },
+        { "@type": "CollegeOrUniversity", "name": "Azerbaijan Technical University" }
+      ],
+      "knowsAbout": ["Backend engineering", "REST APIs", "Java", "Kotlin", "Spring Boot", "Docker", "CI/CD", "Python", "Linux"],
+      "sameAs": [
+        "https://github.com/agilazizovf",
+        "https://www.linkedin.com/in/agil-azizov/",
+        "https://www.youtube.com/@agilazizovf",
+        "https://t.me/agilazizovf"
+      ]
+    })} />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+      try {
+        var savedTheme = localStorage.getItem("agil-portfolio-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+        var crt = localStorage.getItem("agil-portfolio-crt");
+        document.documentElement.setAttribute("data-crt", crt === "off" ? "off" : "on");
+      } catch (e) {}
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.setAttribute("data-reduce", "1");
+      }
+    </script>
+  </head>
+  <body
+    data-locale={locale}
+    data-term-help={dict["term.help"]}
+    data-term-notfound={dict["term.notfound"]}
+    data-cmd-hint={dict["cmd.hint"]}
+  >
+    <Terminal dict={dict} locale={locale} />
+
+    <script>
+      import { initBoot, shouldAutoplayIntro } from "../scripts/boot";
+      import { initTerminal } from "../scripts/terminal";
+      import { initCommandLine } from "../scripts/commandLine";
+      import * as audio from "../scripts/retroAudio";
+
+      const body = document.body;
+      const bootRoot = document.querySelector<HTMLElement>("[data-boot-root]");
+      const resumeLine = document.querySelector<HTMLElement>("[data-resume-line]");
+      const form = document.querySelector<HTMLFormElement>("[data-command-form]");
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      audio.loadMutePreference(reduce);
+
+      let bootApi: ReturnType<typeof initBoot> | null = null;
+      const returningVisitor = !shouldAutoplayIntro();
+
+      const terminalApi = initTerminal({
+        locale: body.dataset.locale || "en",
+        onBootReplay: () => {
+          if (resumeLine) resumeLine.hidden = true;
+          bootApi?.replay();
+        },
+      });
+
+      if (form) {
+        initCommandLine(form, terminalApi, {
+          help: body.dataset.termHelp || "",
+          notFound: body.dataset.termNotfound || "",
+          hint: body.dataset.cmdHint || "",
+        });
+      }
+
+      document.querySelector("[data-replay-boot]")?.addEventListener("click", () => {
+        if (resumeLine) resumeLine.hidden = true;
+        bootApi?.replay();
+      });
+
+      const revealTerminal = () => {
+        if (returningVisitor && resumeLine) resumeLine.hidden = false;
+      };
+
+      if (bootRoot) {
+        bootApi = initBoot(bootRoot, revealTerminal);
+      } else {
+        revealTerminal();
+      }
+    </script>
+  </body>
+</html>

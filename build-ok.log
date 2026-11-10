@@ -1,0 +1,22 @@
+﻿start
+11:46:19 [types] Generated 290ms
+11:46:19 [build] output: "static"
+11:46:19 [build] mode: "static"
+11:46:19 [build] directory: C:\Users\VICTUS\Documents\GitHub\agilazizovf.github.io\dist\
+11:46:19 [build] Collecting build info...
+11:46:19 [build] ✓ Completed in 368ms.
+11:46:19 [build] Building static entrypoints...
+11:46:19 [vite] ✓ built in 502ms
+11:46:20 [vite] ✓ built in 303ms
+11:46:20 [build] Rearranging server assets...
+
+ generating static routes 
+11:46:20   ├─ /az/index.html (+34ms) 
+11:46:20   ├─ /ru/index.html (+14ms) 
+11:46:20   ├─ /index.html (+7ms) 
+11:46:20 ✓ Completed in 76ms.
+
+11:46:20 [build] ✓ Completed in 1.11s.
+11:46:20 [build] 3 page(s) built in 1.48s
+11:46:20 [build] Complete!
+done

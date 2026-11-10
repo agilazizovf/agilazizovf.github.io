@@ -1,0 +1,103 @@
+---
+import type { Dict } from "../../i18n";
+
+interface Props {
+  dict: Dict;
+}
+const { dict } = Astro.props;
+
+const requestFlow = [
+  { title: dict["flow.client"], text: dict["eng.req.1"] },
+  { title: dict["flow.api"], text: dict["eng.req.2"] },
+  { title: dict["flow.service"], text: dict["eng.req.3"] },
+  { title: dict["flow.data"], text: dict["eng.req.4"] },
+];
+
+const shipFlow = [
+  { title: "Commit", text: dict["eng.ship.1"] },
+  { title: "CI", text: dict["eng.ship.2"] },
+  { title: dict["eng.image"], text: dict["eng.ship.3"] },
+  { title: dict["eng.host"], text: dict["eng.ship.4"] },
+];
+
+const cases = [
+  {
+    kicker: "01",
+    title: dict["case.perf.title"],
+    problem: dict["case.perf.problem"],
+    approach: dict["case.perf.approach"],
+    result: dict["case.perf.result"],
+  },
+  {
+    kicker: "02",
+    title: dict["case.em.title"],
+    problem: dict["case.em.problem"],
+    approach: dict["case.em.approach"],
+    result: dict["case.em.result"],
+  },
+  {
+    kicker: "03",
+    title: dict["case.qr.title"],
+    problem: dict["case.qr.problem"],
+    approach: dict["case.qr.approach"],
+    result: dict["case.qr.result"],
+  },
+];
+---
+<section
+  id="engineering"
+  class="term-section"
+  data-section="engineering"
+  hidden
+  aria-hidden="true"
+  aria-labelledby="eng-title"
+>
+  <div class="panel">
+    <h2 id="eng-title" class="panel-title" tabindex="-1">
+      <span>┌─ {dict["nav.engineering"]} </span><span class="rule" aria-hidden="true"></span><span aria-hidden="true">┐</span>
+    </h2>
+    <div class="panel-body">
+      <p style="color:var(--primary);margin-bottom:6px;">{dict["eng.title"]}</p>
+      <p class="lede" style="margin-bottom:14px;">{dict["eng.lead"]}</p>
+
+      <h3 style="color:var(--primary);font-size:14px;letter-spacing:0.06em;text-transform:uppercase;">{dict["eng.req"]}</h3>
+      <ol class="flow">
+        {requestFlow.map((step) => (
+          <li>
+            <strong>{step.title}</strong>
+            <em>{step.text}</em>
+          </li>
+        ))}
+      </ol>
+
+      <h3 style="color:var(--primary);font-size:14px;letter-spacing:0.06em;text-transform:uppercase;">{dict["eng.ship"]}</h3>
+      <ol class="flow">
+        {shipFlow.map((step) => (
+          <li>
+            <strong>{step.title}</strong>
+            <em>{step.text}</em>
+          </li>
+        ))}
+      </ol>
+
+      <hr class="divider" />
+
+      {cases.map((c) => (
+        <article class="case">
+          <p class="case-kicker">{c.kicker}</p>
+          <h3>{c.title}</h3>
+          <dl>
+            <dt>{dict["label.problem"]}</dt>
+            <dd>{c.problem}</dd>
+            <dt>{dict["label.approach"]}</dt>
+            <dd>{c.approach}</dd>
+            <dt>{dict["label.result"]}</dt>
+            <dd>{c.result}</dd>
+          </dl>
+        </article>
+      ))}
+
+      <p class="muted" style="margin-top:8px;font-size:13px;">{dict["eng.fine"]}</p>
+    </div>
+  </div>
+</section>
